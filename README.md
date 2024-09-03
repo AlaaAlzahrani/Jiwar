@@ -14,32 +14,20 @@ Jiwar is an open-source Python-based computational tool designed to analyze orth
 
 ## Jiwar Measures
 
-### Orthographic
-
-| **Measure**                       | **Definition**                                                                                                 |
-|----------------------------------|----------------------------------------------------------------------------------------------------------------|
-| **Neighbourhood Density**         | Generates the number and forms of orthographic neighbors of the target word based on  single letter substitution, addition, and deletion. |
-| **Neighbourhood Frequency**       | Generates the mean word frequency and standard deviation of the target word’s orthographic neighbors based on single letter substitution, addition, and deletion. |
-| **Orthographic Levenshtein Distance-20** | Generates the mean Levenshtein edit distance and standard deviation of the target word’s 20 closest orthographic neighbors based on single letter substitution, addition, or deletion. |
-
-### Phonological
-
-| **Measure**                       | **Definition**                                                                                                 |
-|----------------------------------|----------------------------------------------------------------------------------------------------------------|
-| **IPA Transcription**                | Automatically generates IPA for 51 languages using the Python library "phonemizer" with "espeak" as the backend. |
-| **Neighbourhood Density**         | Generates the number and forms of phonological neighbors of the target word based on single phoneme substitution, addition, and deletion. |
-| **Neighbourhood Frequency**       | Generates the mean word frequency and standard deviation of the target word’s phonological neighbors based on single phoneme substitution, addition, and deletion. |
-| **Phonological Levenshtein Distance-20** | Generates the mean Levenshtein edit distance and standard deviation of the target word’s 20 closest phonological neighbors based on single phoneme substitution, addition, or deletion. |
-| **Clustering Coefficient (C coefficient)** | Generates the proportion of phonological neighbors of a target word that are also phonological neighbors of each other, based on single phoneme substitution, addition, or deletion. |
-
-### Phonographic
-
-| **Measure**                       | **Definition**                                                                                                 |
-|----------------------------------|----------------------------------------------------------------------------------------------------------------|
-| **Neighbourhood Density**         | Generates the number and forms of phonographic neighbors of the target word based on single letter and phoneme substitution, addition, and deletion. |
-| **Neighbourhood Frequency**       | Generates the mean word frequency and standard deviation of the target word’s phonographic neighbors based on single letter and phoneme substitution, addition, and deletion. |
-| **Phonographic Levenshtein Distance-20** | Generates the mean Levenshtein edit distance and standard deviation of the target word’s 20 closest phonographic neighbors based on single letter and phoneme substitution, addition, and deletion. |
-| **Clustering Coefficient (C coefficient)** | Generates the proportion of phonographic neighbors of a target word that are also phonographic neighbors of each other, based on single letter and phoneme substitution, addition, or deletion. |
+| **Category**    | **Measure**                              |
+|-----------------|-----------------------------------------|
+| Orthographic    | Neighbourhood Density                    |
+| Orthographic    | Neighbourhood Frequency                  |
+| Orthographic    | Orthographic Levenshtein Distance-20     |
+| Phonological    | IPA Transcription                        |
+| Phonological    | Neighbourhood Density                    |
+| Phonological    | Neighbourhood Frequency                  |
+| Phonological    | Phonological Levenshtein Distance-20     |
+| Phonological    | Clustering Coefficient (C coefficient)    |
+| Phonographic    | Neighbourhood Density                    |
+| Phonographic    | Neighbourhood Frequency                  |
+| Phonographic    | Phonographic Levenshtein Distance-20     |
+| Phonographic    | Clustering Coefficient (C coefficient)    |
 
 ## Jiwar Supported Languages
 
@@ -110,7 +98,7 @@ Jiwar is an open-source Python-based computational tool designed to analyze orth
 1. Clone the repository:
 
 ```bash
-   git clone https://github.com/AlaaAlzahrani/jiwar.git
+   git clone https://github.com/AlaaAlzahrani/Jiwar.git
    cd jiwar
 ```
 
@@ -185,7 +173,7 @@ python jiwar.py --help_all
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE file](https://github.com/AlaaAlzahrani/jiwar/blob/main/LICENSE) for details.
+This project is licensed under the MIT License. See the [LICENSE file](https://github.com/AlaaAlzahrani/Jiwar/blob/master/LICENSE) for details.
 
 ## Citation
 
