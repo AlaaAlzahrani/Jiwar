@@ -108,8 +108,8 @@ class CorpusHandler:
                 raise ValueError("User corpus does not contain any columns starting with 'frequency_'.")
             self.frequency_columns = frequency_columns[:2]  
         else:
-            if 'relative_frequency' in available_columns and 'zipf' in available_columns:
-                self.frequency_columns = ['relative_frequency', 'zipf']
+            if 'freq_per_m' in available_columns and 'zipf' in available_columns:
+                self.frequency_columns = ['freq_per_m', 'zipf']
             else:
                 raise ValueError("Subtitle corpus is missing required frequency columns.")
 
