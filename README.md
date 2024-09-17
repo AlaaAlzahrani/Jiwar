@@ -1,9 +1,9 @@
-# Jiwar: A Database and Calculator for Orthographic and Phonological Neighborhood Metrics for 40+ Languages
+# Jiwar: A database and calculator for word neighborhood measures across 40+ languages
 
 
 ## Overview
 
-Jiwar is an open-source Python-based computational tool designed to analyze orthographic/phonological neighbors in 40+ languages. It automattically measures orthographic, phonological, and phonographic metrics using a user-friendly Python CLI tool.
+The Jiwar calulator is an open-source Python-based computational tool designed to analyze orthographic, phonological and phonographic neighbors in 40+ languages. It automattically calulates these neighborhood measures using a user-friendly Python CLI tool.
 
 
 ## How to use the tool
