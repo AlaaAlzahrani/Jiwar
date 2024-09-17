@@ -173,7 +173,13 @@ python jiwar.py --help_all
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE file](https://github.com/AlaaAlzahrani/Jiwar/blob/master/LICENSE) for details.
+Copyright 2024 Alaa Alzahrani
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/.
 
 ## Citation
 
@@ -181,7 +187,7 @@ If you use Jiwar in your research, please cite it as follows:
 
 ```bibtex
 @preprint{Alzahrani:2024:jiwar,
-    title = "{Jiwar: A Database and Calculator for Orthographic and Phonological Neighborhood Metrics for 55 Languages}",
+    title = "{Jiwar: A Database and Calculator for Orthographic and Phonological Neighborhood Metrics for [N] Languages}",
     author = {Alaa Alzahrani},
     year = "2024",
     note = "Preprint"
