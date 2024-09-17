@@ -41,9 +41,9 @@ Jiwar is an open-source Python tool for analyzing orthographic, phonological, an
 
 ## Language Support
 
-- Jiwar supports [127 languages](https://github.com/AlaaAlzahrani/Jiwar/docs/LANGUAGES.md). 
+- Jiwar supports [127 languages](https://github.com/AlaaAlzahrani/Jiwar/blob/master/docs/LANGUAGES.md). 
 - Jiwar includes built-in corpora for 40 languages. 
-- For languages without a built-in corpus, you'll need to provide a [custom corpus](https://github.com/AlaaAlzahrani/Jiwar/docs/CUSTOM_CORPUS.md).
+- For languages without a built-in corpus, you'll need to provide a [custom corpus](https://github.com/AlaaAlzahrani/Jiwar/blob/master/docs/CUSTOM_CORPUS.md).
 
 
 ## Usage
@@ -56,10 +56,10 @@ Jiwar is an open-source Python tool for analyzing orthographic, phonological, an
 ## Documentation
 
 For more detailed instructions and examples, check the following:
-- [Supported Measures](https://github.com/AlaaAlzahrani/Jiwar/docs/MEASURES.md)
-- [Supported Languages](https://github.com/AlaaAlzahrani/Jiwar/docs/LANGUAGES.md)
-- [Creating Custom Corpora](https://github.com/AlaaAlzahrani/Jiwar/docs/CUSTOM_CORPUS.md)
-- [Detailed Usage Instructions](https://github.com/AlaaAlzahrani/Jiwar/docs/USAGE.md)
+- [Supported Measures](https://github.com/AlaaAlzahrani/Jiwar/blob/master/docs/MEASURES.md)
+- [Supported Languages](https://github.com/AlaaAlzahrani/Jiwar/blob/master/docs/LANGUAGES.md)
+- [Creating Custom Corpora](https://github.com/AlaaAlzahrani/Jiwar/blob/master/docs/CUSTOM_CORPUS.md)
+- [Detailed Usage Instructions](https://github.com/AlaaAlzahrani/Jiwar/blob/master/docs/USAGE.md)
 
 
 ## License

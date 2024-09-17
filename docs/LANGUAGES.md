@@ -80,4 +80,4 @@ These languages are supported by Jiwar but require a custom corpus:
 | bo | Tibetan |
 | vi | Vietnamese |
 
-For instructions on creating and using custom corpora, please refer to the [CUSTOM_CORPUS.md file](https://github.com/AlaaAlzahrani/Jiwar/docs/CUSTOM_CORPUS.md).
+For instructions on creating and using custom corpora, please refer to the [CUSTOM_CORPUS.md file](https://github.com/AlaaAlzahrani/Jiwar/blob/master/docs/CUSTOM_CORPUS.md).

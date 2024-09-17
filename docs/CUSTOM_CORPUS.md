@@ -36,4 +36,4 @@ cherry,600,30.1
 
 Note: If a built-in corpus is available for your chosen language, Jiwar will ask if you want to use it or your custom corpus.
 
-For more detailed usage instructions, please refer to the [USAGE.md file]((https://github.com/AlaaAlzahrani/Jiwar/docs/USAGE.md)).
+For more detailed usage instructions, please refer to the [USAGE.md file]((https://github.com/AlaaAlzahrani/Jiwar/blob/master/docs/USAGE.md)).

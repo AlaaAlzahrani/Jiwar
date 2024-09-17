@@ -31,7 +31,7 @@ This guide provides detailed instructions on how to use Jiwar for various scenar
 
 ### Scenario 3: Using a Custom Corpus for Hindi
 
-1. Prepare your custom Hindi corpus and save it as `hindi_corpus.csv` in the `data/corpus/user_loaded/` directory. The [custum corpus](https://github.com/AlaaAlzahrani/Jiwar/docs/CUSTOM_CORPUS.md) must include a 'word' column.
+1. Prepare your custom Hindi corpus and save it as `hindi_corpus.csv` in the `data/corpus/user_loaded/` directory. The [custum corpus](https://github.com/AlaaAlzahrani/Jiwar/blob/master/docs/CUSTOM_CORPUS.md) must include a 'word' column.
 2. Prepare your input file named `hindi_words.csv` with a 'word' column.
 3. Run: `python jiwar.py`
 4. When prompted, enter:
@@ -47,4 +47,4 @@ This guide provides detailed instructions on how to use Jiwar for various scenar
 - To exit the program at any time, type `exit` at any prompt.
 - For languages without built-in IPA support, consider adding an 'IPA' column to your input file for phonological and phonographic measures.
 
-For more information on specific measures, refer to the [MEASURES.md file](https://github.com/AlaaAlzahrani/Jiwar/docs/MEASURES.md). For language support details, see the [LANGUAGES.md file](https://github.com/AlaaAlzahrani/Jiwar/docs/LANGUAGES.md).
+For more information on specific measures, refer to the [MEASURES.md file](https://github.com/AlaaAlzahrani/Jiwar/blob/master/docs/MEASURES.md). For language support details, see the [LANGUAGES.md file](https://github.com/AlaaAlzahrani/Jiwar/blob/master/docs/LANGUAGES.md).
