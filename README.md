@@ -1,193 +1,78 @@
-# Jiwar: A database and calculator for word neighborhood measures across 40+ languages
-
+# Jiwar: Word Neighborhood Calculator for 40+ Languages
 
 ## Overview
 
-The Jiwar calulator is an open-source Python-based computational tool designed to analyze orthographic, phonological and phonographic neighbors in 40+ languages. It automattically calulates these neighborhood measures using a user-friendly Python CLI tool.
+Jiwar is an open-source Python tool for analyzing orthographic, phonological, and phonographic neighbors across 40+ languages. It offers a user-friendly command-line interface for calculating various neighborhood measures.
 
+## Features
 
-## How to use the tool
+- Supports 40+ languages
+- Calculates orthographic, phonological, and phonographic measures
+- User-friendly command-line interface
+- Supports custom corpus files
 
-- Prepare Your Input File: Provide a CSV or Excel file containing at least one column titled "word" with a list of words in any of the supported languages.
-
-- Run the Tool: Use the jiwar.py CLI tool to compute and return the desired metrics, including orthographic, phonological, and phonographic measures.
-
-## Jiwar Measures
-
-| **Category**    | **Measure**                              |
-|-----------------|-----------------------------------------|
-| Orthographic    | Neighbourhood Density                    |
-| Orthographic    | Neighbourhood Frequency                  |
-| Orthographic    | Orthographic Levenshtein Distance-20     |
-| Phonological    | IPA Transcription                        |
-| Phonological    | Neighbourhood Density                    |
-| Phonological    | Neighbourhood Frequency                  |
-| Phonological    | Phonological Levenshtein Distance-20     |
-| Phonological    | Clustering Coefficient (C coefficient)    |
-| Phonographic    | Neighbourhood Density                    |
-| Phonographic    | Neighbourhood Frequency                  |
-| Phonographic    | Phonographic Levenshtein Distance-20     |
-| Phonographic    | Clustering Coefficient (C coefficient)    |
-
-## Jiwar Supported Languages
-
-
-| Code    | Language                              |
-|---------|---------------------------------------|
-| af      | Afrikaans                             |
-| ar      | Arabic (non-diacriticized words)       |
-| ar-tashkeel | Arabic (diacriticized words)       |
-| bg      | Bulgarian                             |
-| bn      | Bengali                               |
-| br      | Breton                                |
-| bs      | Bosnian                               |
-| ca      | Catalan                               |
-| cs      | Czech                                 |
-| da      | Danish                                |
-| de      | German                                |
-| el      | Greek                                 |
-| en-gb   | English (GB)                          |
-| en-us   | English (US)                          |
-| eo      | Esperanto                             |
-| es      | Spanish                               |
-| et      | Estonian                              |
-| eu      | Basque                                |
-| fa      | Persian (Farsi)                       |
-| fi      | Finnish                               |
-| fr      | French                                |
-| gl      | Galician                              |
-| he      | Hebrew                                |
-| hi      | Hindi                                 |
-| hr      | Croatian                              |
-| hu      | Hungarian                             |
-| hy      | Armenian                              |
-| id      | Indonesian                            |
-| is      | Icelandic                             |
-| it      | Italian                               |
-| ka      | Georgian                              |
-| kk      | Kazakh                                |
-| ko      | Korean                                |
-| lt      | Lithuanian                            |
-| lv      | Latvian                               |
-| mk      | Macedonian                            |
-| ml      | Malayalam                             |
-| ms      | Malay                                 |
-| nl      | Dutch                                 |
-| no      | Norwegian                             |
-| pl      | Polish                                |
-| pt      | Portuguese                            |
-| ro      | Romanian                              |
-| ru      | Russian                               |
-| si      | Sinhala                               |
-| sk      | Slovak                                |
-| sl      | Slovenian                             |
-| sq      | Albanian                              |
-| sr      | Serbian                               |
-| sv      | Swedish                               |
-| ta      | Tamil                                 |
-| te      | Telugu                                |
-| tl      | Tagalog (Filipino)                    |
-| tr      | Turkish                               |
-| uk      | Ukrainian                             |
-| ur      | Urdu                                  |
-| vi      | Vietnamese                            |
-
-
-## Jiwar Installation
+## Quick Start
 
 1. Clone the repository:
-
-```bash
+   ```
    git clone https://github.com/AlaaAlzahrani/Jiwar.git
-   cd jiwar
-```
+   cd Jiwar
+   ```
 
 2. Install dependencies:
+   ```
+   pip install -r requirements.txt
+   ```
 
-```bash
-pip install -r requirements.txt
-```
+3. Run Jiwar:
+   ```
+   python jiwar.py
+   ```
 
-3. Install additional dependencies: 
+## Supported Measures
 
-Ensure that you have the "espeak" backend installed, which is required for the phonemizer library. Follow the instructions provided in the [Phonemizer documentation](https://bootphon.github.io/phonemizer/install.html) to install it properly.
+| Measure | Description |
+|---------|-------------|
+| N (Neighborhood Size) | Number of words that differ by one letter/phoneme |
+| Density | Number of words within a Levenshtein distance of 1 |
+| OLD20/PLD20/PGLD20 | Average Levenshtein distance of the 20 closest neighbors |
+| C (Clustering Coefficient) | Measures how interconnected a word's neighbors are |
+| Neighborhood Frequency | Statistics about the frequencies of neighboring words |
 
+## Language Support
 
-## Examples
-
-### Calculate All Available Measures
-
-To calculate all available measures (orthographic, phonological, and phonographic) for a specific input file and language, use:
-
-```bash
-python jiwar.py input_file.csv en-us --all
-```
-
-### Calculate Only Orthographic Measures
-To calculate only orthographic measures for a specific input file and language, use:
-
-```bash
-python jiwar.py input_file.csv en-us --orth
-```
+- Jiwar supports [127 languages](https://github.com/AlaaAlzahrani/Jiwar/docs/LANGUAGES.md). 
+- Jiwar includes built-in corpora for 40 languages. 
+- For languages without a built-in corpus, you'll need to provide a [custom corpus](https://github.com/AlaaAlzahrani/Jiwar/docs/CUSTOM_CORPUS.md).
 
 
-### Calculate Only Phonological Measures
+## Usage
 
-To calculate only phonological measures for a specific input file and language, use:
+1. Prepare your input file (CSV or Excel) with a 'word' column.
+2. Run `python jiwar.py` and follow the prompts.
+3. Select your desired language and measures.
+4. Jiwar will process your input and save the results.
 
-```bash
-python jiwar.py input_file.csv en-us --phon
-```
+## Documentation
 
-### Calculate Only Phonographic Measures
+For more detailed instructions and examples, check the following:
+- [Supported Measures](https://github.com/AlaaAlzahrani/Jiwar/docs/MEASURES.md)
+- [Supported Languages](https://github.com/AlaaAlzahrani/Jiwar/docs/LANGUAGES.md)
+- [Creating Custom Corpora](https://github.com/AlaaAlzahrani/Jiwar/docs/CUSTOM_CORPUS.md)
+- [Detailed Usage Instructions](https://github.com/AlaaAlzahrani/Jiwar/docs/USAGE.md)
 
-To calculate only phonographic measures for a specific input file and language, use:
-
-```bash
-python jiwar.py input_file.csv en-us --pg
-```
-
-### Generate IPA Transcriptions
-
-To generate IPA transcriptions for a specific input file and language, use:
-
-```bash
-python jiwar.py input_file.csv en-us --generate_ipa
-```
-
-###  Use a Custom Corpus File
-
-To use a custom corpus file located in data/corpus/user_loaded/, specify the corpus file and calculate all measures:
-
-```bash
-python jiwar.py input_file.csv en-us --corpus_file custom_corpus.csv --all
-```
-
-### Help Messages
-
-To display detailed help messages, use:
-
-```bash
-python jiwar.py --help_all
-```
 
 ## License
 
-Copyright 2024 Alaa Alzahrani
-
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
-
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/.
+Jiwar is licensed under the GNU General Public License v3.0. See the [LICENSE](LICENSE) file for details.
 
 ## Citation
 
-If you use Jiwar in your research, please cite it as follows:
+If you use Jiwar in your research, please cite:
 
 ```bibtex
 @preprint{Alzahrani:2024:jiwar,
-    title = "{Jiwar: A Database and Calculator for Orthographic and Phonological Neighborhood Metrics for 40+ Languages}",
+    title = "{Jiwar: A Database and Calculator for Orthographic and Phonological Neighborhood Measures for 40 Languages}",
     author = {Alaa Alzahrani},
     year = "2024",
     note = "Preprint"

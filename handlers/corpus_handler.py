@@ -115,7 +115,6 @@ class CorpusHandler:
             else:
                 raise ValueError("Subtitle corpus is missing required frequency columns.")
 
-
     def _validate_corpus(self):
         if 'word' not in self.corpus_data.columns:
             raise ValueError("The custom corpus is missing the required 'word' column. "
@@ -145,7 +144,6 @@ class CorpusHandler:
             print("Note: The corpus does not contain an 'IPA' column. "
                   "Phonological and phonographic measures will not be available.")
             
-
     def get_word_frequencies(self):
         if self.corpus_data is None or self.corpus_data.is_empty():
             raise ValueError("Corpus not loaded or empty. Call load_corpus() first.")

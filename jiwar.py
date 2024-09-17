@@ -206,11 +206,11 @@ def main():
         print("IPA column found in input data. Skipping IPA generation.")
     elif include_ipa:
         print("Generating IPA transcriptions for input data...")
-        input_data = input_data.with_columns(pl.Series('IPA', IPA_generator.generate_ipa(input_data['word'].to_list(), args.language)))
+        input_data = input_data.with_columns(pl.Series('IPA', IPA_generator.generate_ipa(input_data['word'].to_list(), language_code)))
     
     if include_ipa and 'IPA' not in corpus_data.columns:
         print("Generating IPA transcriptions for corpus data...")
-        corpus_data = corpus_data.with_columns(pl.Series('IPA', IPA_generator.generate_ipa(corpus_data['word'].to_list(), args.language)))
+        corpus_data = corpus_data.with_columns(pl.Series('IPA', IPA_generator.generate_ipa(corpus_data['word'].to_list(), language_code)))
 
     chunk_size = 1000
     n_jobs = cpu_count()

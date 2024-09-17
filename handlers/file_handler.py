@@ -9,8 +9,6 @@ def strip_white_spaces(s):
     return ' '.join(s.split())
 
 class FileReader:
-    """_summary_
-    """
     def __init__(self, max_input=100000):
         self.max_input = max_input
         self.input_data = None
@@ -57,18 +55,15 @@ class FileReader:
         if len(self.input_data) == 0:
             raise ValueError("The input file contains no data.")
 
-        # Clean column names
         clean_col_names = [
             re.sub(r'[^\w\s]', '', col).strip().replace(' ', '_').lower()
             for col in self.input_data.columns
         ]
         self.input_data = self.input_data.rename(dict(zip(self.input_data.columns, clean_col_names)))
 
-        # Ensure 'word' column exists
         if 'word' not in self.input_data.columns:
             raise ValueError("The input file must contain a 'word' column.")
 
-        # Remove rows with empty words
         initial_row_count = len(self.input_data)
         self.input_data = self.input_data.filter(pl.col('word').is_not_null() & (pl.col('word') != ""))
         rows_removed = initial_row_count - len(self.input_data)

@@ -131,6 +131,7 @@ LANGUAGE_MAPPING = {
     "yue": "Cantonese"
 }
 
+
 def get_language_code(language_input):
     language_input = language_input.lower()
     if language_input in LANGUAGE_MAPPING:
@@ -140,8 +141,10 @@ def get_language_code(language_input):
             return code
     return None
 
+
 def is_supported_language(language_input):
     return get_language_code(language_input) is not None
+
 
 def get_supported_languages_info():
     message = (
