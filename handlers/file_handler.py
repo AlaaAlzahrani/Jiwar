@@ -9,6 +9,8 @@ def strip_white_spaces(s):
     return ' '.join(s.split())
 
 class FileReader:
+    """_summary_
+    """
     def __init__(self, max_input=100000):
         self.max_input = max_input
         self.input_data = None
@@ -46,7 +48,6 @@ class FileReader:
     def _convert_to_polars(self, raw_data):
         try:
             df = pl.read_csv(io.StringIO(raw_data))
-            print(f"DataFrame info: {df.schema}")
             return df
         except Exception as e:
             print(f"Error converting to Polars DataFrame: {str(e)}")
@@ -76,8 +77,40 @@ class FileReader:
             raise ValueError("All rows were removed during cleaning. Please check your input file.")
 
         print(f"Cleaned input data. Removed {rows_removed} rows with empty words.")
-        print(f"Final row count: {len(self.input_data)}")
-
 
     def _save_as_tsv(self, dataframe, output_path):
         dataframe.write_csv(output_path, separator='\t')
+
+    def get_words(self, col):
+        if self.input_data is None:
+            return []
+        words = (
+            self.input_data
+            .select(pl.col(col))
+            .filter(pl.col(col) != "")
+            .limit(self.max_input)
+            .to_series()
+            .to_list()
+        )
+        return words
+
+    def get_orth_words(self):
+        return [word.lower() for word in self.get_words(col='word')]
+
+    def get_phon_words(self, input_is_phon_only=False):
+        col = 'word' if input_is_phon_only else 'IPA'
+        return self.get_words(col=col)
+
+    def get_pg_words(self):
+        orth_words = self.get_orth_words()
+        phon_words = self.get_phon_words()
+        return list(zip(orth_words, phon_words)) if orth_words and phon_words else []
+
+    @staticmethod
+    def _remove_accents(input_str):
+        if input_str is None:
+            return input_str
+        if not isinstance(input_str, str):
+            return str(input_str)
+        nfkd_form = unicodedata.normalize('NFKD', str(input_str))
+        return ''.join([c for c in nfkd_form if not unicodedata.combining(c)])

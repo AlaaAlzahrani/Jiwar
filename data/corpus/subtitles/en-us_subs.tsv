@@ -1,4 +1,4 @@
-word	raw_frequency	relative_frequency	zipf	number_of_letters	orth_neighbor_size	avg_orth_neighbor_freq	IPA_original	IPA	phon_neighbor_size	avg_phon_neighbor_freq	phonographic_distance
+word	raw_frequency	freq_per_m	zipf	number_of_letters	orth_neighbor_size	avg_orth_neighbor_freq	IPA_original	IPA	phon_neighbor_size	avg_phon_neighbor_freq	phonographic_distance
 time	1562273	7384.529729440297	6.868322843261761	4	1.25	4.320822375344806	taɪm	taɪm	1.0	4.371230139603858	0.017234932416044447
 gonna	1289737	6096.310452564399	6.7850670751954745	5	1.9	4.145761775058107	ɡənə	ɡənə	2.0	3.787308419590313	0.11862453240183592
 people	1051746	4971.3779888789695	6.696476785115154	6	2.35	4.036239021832263	piːpəl	piːpəl	1.85	4.110980641529862	0.14062463570386963

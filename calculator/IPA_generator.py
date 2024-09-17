@@ -6,35 +6,24 @@ from phonemizer.separator import Separator
 import warnings
 from functools import lru_cache
 from tqdm import tqdm
+from handlers.language_mapping import LANGUAGE_MAPPING
 
-LANGUAGE_CODE_MAP = {
-    'af': 'af', 'ar': 'ar', 'bg': 'bg', 'bn': 'bn', 'bs': 'bs',
-    'ca': 'ca', 'cs': 'cs', 'da': 'da', 'de': 'de', 'el': 'el', 
-    'en': 'en-us', 'en-us': 'en-us', 'en-gb': 'en-gb', 'eo': 'eo', 'es': 'es', 'et': 'et', 'eu': 'eu', 
-    'fa': 'fa', 'fi': 'fi', 'fr': 'fr', 'he': 'he', 'hi': 'hi', 
-    'hr': 'hr', 'hu': 'hu', 'hy': 'hy', 'id': 'id', 'is': 'is', 
-    'it': 'it', 'ja': 'ja', 'ka': 'ka', 'kk': 'kk', 'ko': 'ko', 
-    'lt': 'lt', 'lv': 'lv', 'mk': 'mk', 'ml': 'ml', 'mr': 'mr', 
-    'ms': 'ms', 'ne': 'ne', 'nl': 'nl', 'no': 'nb', 'pa': 'pa', 
-    'pl': 'pl', 'pt': 'pt', 'ro': 'ro', 'ru': 'ru', 'si': 'si', 
-    'sk': 'sk', 'sl': 'sl', 'sq': 'sq', 'sr': 'sr', 'sv': 'sv', 
-    'sw': 'sw', 'ta': 'ta', 'te': 'te', 'th': 'th', 'tr': 'tr', 
-    'uk': 'uk', 'ur': 'ur', 'vi': 'vi'
-}
-
-@lru_cache(maxsize=1)
+@lru_cache(maxsize=100)
 def get_espeak_language_code(language):
     language = language.lower()
-    if language in ['ar', 'ar-tashkeel']:
-        return 'ar'
-    if language in LANGUAGE_CODE_MAP:
-        return LANGUAGE_CODE_MAP[language]
-    elif language in LANGUAGE_CODE_MAP.values():
+    
+    if language in LANGUAGE_MAPPING:
         return language
-    elif '-' in language:
+    
+    for code, name in LANGUAGE_MAPPING.items():
+        if language == name.lower():
+            return code
+    
+    if '-' in language:
         base_language = language.split('-')[0]
-        if base_language in LANGUAGE_CODE_MAP:
-            return LANGUAGE_CODE_MAP[base_language]
+        if base_language in LANGUAGE_MAPPING:
+            return base_language
+    
     raise ValueError(f"Unsupported language: {language}")
 
 def clean_ipa(ipa):

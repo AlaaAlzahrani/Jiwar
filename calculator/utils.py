@@ -1,3 +1,5 @@
+import re
+
 def split_list(input_list, n_splits):
     """Splits a list into n nearly equal parts."""
     avg_len = len(input_list) / float(n_splits)
@@ -9,3 +11,12 @@ def split_list(input_list, n_splits):
         last += avg_len
 
     return splits
+
+def count_letters(word):
+    """Count the number of letters in a word."""
+    return len(word)
+
+def count_phonemes(ipa):
+    """Count the number of phonemes in an IPA transcription."""
+    cleaned_ipa = re.sub(r'[ˈˌ.]', '', ipa)
+    return len(cleaned_ipa)
