@@ -1,4 +1,4 @@
-# Jiwar: A Database and Calculator for Orthographic and Phonological Neighborhood Metrics for 55 Languages
+# Jiwar: A Database and Calculator for Orthographic and Phonological Neighborhood Metrics for Multiple Languages
 
 
 ## Overview
