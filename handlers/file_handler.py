@@ -55,6 +55,17 @@ class FileReader:
             raise IOError(f"Unable to determine the correct encoding for file {file_path}")
         except Exception as e:
             raise IOError(f"Error reading file {file_path}: {str(e)}")
+    
+    def _clean_white_spaces(self, data):
+        return '\n'.join(strip_white_spaces(line) for line in data.split('\n') if line.strip())
+
+    def _convert_to_polars(self, raw_data):
+        try:
+            df = pl.read_csv(io.StringIO(raw_data))
+            return df
+        except Exception as e:
+            print(f"Error converting to Polars DataFrame: {str(e)}")
+            raise ValueError("Could not parse the input file. Please check your file format.")
         
     def _clean_input(self):
         if len(self.input_data) == 0:
