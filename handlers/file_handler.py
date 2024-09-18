@@ -19,8 +19,8 @@ class FileReader:
     def read_input_file(self, filename):
         file_path = self.get_file_path(filename)
         if not file_path:
-            raise FileNotFoundError(f"File not found: {filename}\nPlease make sure the file exists in the current directory, the input directory, or provide the full path.")
-        
+            return None
+                
         raw_data = self._read_file_as_text(file_path)
         cleaned_data = self._clean_white_spaces(raw_data)
         self.input_data = self._convert_to_polars(cleaned_data)

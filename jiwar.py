@@ -1,5 +1,6 @@
 import polars as pl
 from tqdm import tqdm
+from pathlib import Path
 from multiprocessing import Pool, cpu_count
 from calculator import utils
 from handlers.file_handler import FileReader
@@ -169,34 +170,33 @@ def main():
                 print(f"Error loading corpus: {e}")
                 print("Please ensure your corpus meets the minimum requirements and try again, or type 'exit' to quit.")
 
-
+    file_reader = FileReader()
     while True:
-            input_file = input("Enter the path to your input file:\n"
-                            "- Enter just the filename to look in the current directory or Jiwar's input directory\n"
-                            "- Or enter the full path to the file\n"
-                            "Your input: ")
-            if input_file.lower() == 'exit':
-                print("Exiting Jiwar.")
-                return
-            try:
-                file_reader = FileReader()
-                input_data = file_reader.read_input_file(input_file)
-                print(f"Input data columns: {input_data.columns}")
-                break
-            except FileNotFoundError as e:
-                print(f"Error: {e}")
-                print("Jiwar looked for the file in the following locations:")
-                print(f"1. Current working directory: {Path.cwd()}")
-                print(f"2. Jiwar's input directory: {file_reader.input_dir}")
-                print("Please make sure you've entered the correct filename or path.")
-                print("You can type 'exit' to quit the program.")
-            except Exception as e:
-                print(f"Error reading input file: {e}")
-                print("Please try again or type 'exit' to quit.")
-            
-            if input_file.lower() == 'exit':
-                print("Exiting Jiwar.")
-                return
+        input_file = input("Enter the path to your input file:\n"
+                           "- Enter just the filename to look in the current directory or Jiwar's input directory\n"
+                           "- Or enter the full path to the file\n"
+                           "Your input: ")
+        if input_file.lower() == 'exit':
+            print("Exiting Jiwar.")
+            return
+        try:
+            input_data = file_reader.read_input_file(input_file)
+            print(f"Input data columns: {input_data.columns}")
+            break
+        except FileNotFoundError as e:
+            print(f"Error: {e}")
+            print("Jiwar looked for the file in the following locations:")
+            print(f"1. Current working directory: {Path.cwd()}")
+            print(f"2. Jiwar's input directory: {file_reader.input_dir}")
+            print("Please make sure you've entered the correct filename or path.")
+            print("You can type 'exit' to quit the program.")
+        except Exception as e:
+            print(f"Error reading input file: {e}")
+            print("Please try again or type 'exit' to quit.")
+        
+        if input_file.lower() == 'exit':
+            print("Exiting Jiwar.")
+            return
 
     while True:
         measure_input = input("Enter the type of measures to calculate (all, orth, phon, pg, or a combination separated by commas): ").lower()
