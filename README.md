@@ -24,7 +24,7 @@ Jiwar is an open-source Python tool for generating orthographic, phonological, a
 
 ## Overview of Jiwar
 
-![Installing and running Jiwar on Windows via vs-code](./jiwar/docs/pics/jiwar_install_use.gif)
+![Installing and running Jiwar on Windows via vs-code](https://github.com/AlaaAlzahrani/Jiwar/blob/master/docs/pics/jiwar_install_use.gif)
 
 
 ##  Get Started  
