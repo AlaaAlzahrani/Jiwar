@@ -121,8 +121,6 @@ def process_chunk(args):
 def main():
 
     print("Welcome to Jiwar!")
-    print("Please ensure your input files are located in the 'data/input' directory.")
-    print("You can use just the filename when prompted for the input file.")
     print()
 
     corpus_handler = CorpusHandler()
@@ -175,7 +173,10 @@ def main():
                 print("Please ensure your corpus meets the minimum requirements and try again, or type 'exit' to quit.")
 
     while True:
-        input_file = input("Enter the name of your input file (e.g., en_words.csv): ")
+        input_file = input("Enter the full path to your input file (e.g., D:/jiwar/data/input/en_words.csv): ")
+        if input_file.lower() == 'exit':
+            print("Exiting Jiwar.")
+            return
         try:
             file_reader = FileReader()
             input_data = file_reader.read_input_file(input_file)
@@ -183,9 +184,12 @@ def main():
             break
         except FileNotFoundError as e:
             print(f"Error: {e}")
-            print("Make sure the file is in the 'data/input' directory.")
-            print("You can use just the filename if it's in the correct directory.")
-            print("Please try again or type 'exit' to quit.")
+            print("Please enter the complete path to your input file, including the Jiwar directory.")
+            print("Examples:")
+            print("  - Windows: D:\\jiwar\\data\\input\\en_words.csv")
+            print("  - macOS/Linux: /home/user/jiwar/data/input/en_words.csv")
+            print("Make sure the file exists at the specified location within the Jiwar directory structure.")
+            print("You can type 'exit' to quit the program.")
         except Exception as e:
             print(f"Error reading input file: {e}")
             print("Please try again or type 'exit' to quit.")

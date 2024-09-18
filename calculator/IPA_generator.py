@@ -7,6 +7,7 @@ import warnings
 from functools import lru_cache
 from tqdm import tqdm
 from handlers.language_mapping import LANGUAGE_MAPPING
+import warnings
 
 @lru_cache(maxsize=100)
 def get_espeak_language_code(language):
@@ -46,7 +47,7 @@ def generate_ipa(words, language, preserve_punctuation=False, with_stress=False,
     
     try:
         phonemizer_backend = EspeakBackend(language_code, preserve_punctuation=preserve_punctuation, with_stress=with_stress)
-        
+
         def process_batch(batch):
             phonemized = phonemize(
                 batch,
@@ -66,6 +67,23 @@ def generate_ipa(words, language, preserve_punctuation=False, with_stress=False,
             ipa_transcriptions.extend(process_batch(batch))
         
         return pl.Series(ipa_transcriptions)
+    
     except RuntimeError as e:
-        warnings.warn(f"Error during phonemization: {str(e)}. IPA generation will be skipped.")
+        friendly_message = f"""
+        Oops! It looks like eSpeak is not installed on your system. Don't worry, we can fix this!
+
+        To use the IPA generation feature, you'll need to install eSpeak. Here's how:
+
+        1. Visit https://github.com/espeak-ng/espeak-ng/releases and download the latest version of eSpeak for Windows.
+        2. Install eSpeak on your computer.
+        3. After installation, you may need to restart your computer.
+
+        For detailed instructions on setting up eSpeak and other requirements, please visit:
+        https://bootphon.github.io/phonemizer/install.html#on-windows
+
+        Once you've installed eSpeak, try running Jiwar again. If you're still having trouble, feel free to reach out for help!
+
+        For now, IPA generation will be skipped, but you can still use other features of Jiwar.
+        """
+        warnings.warn(friendly_message)
         return pl.Series([''] * len(words))
