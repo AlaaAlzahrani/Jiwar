@@ -29,7 +29,7 @@ Jiwar is an open-source Python tool for generating orthographic, phonological, a
 
 ![alt text](https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)
 
-   - Click [HERE](https://colab.research.google.com/drive/1f_n7uuimT8MReaOW4U4LP8dAUVtY2hAq) to use an interactive Google colab notebook.
+   - Click [HERE](https://colab.research.google.com/drive/1f_n7uuimT8MReaOW4U4LP8dAUVtY2hAq?usp=sharing) to use an interactive Google colab notebook.
    - This online notebook helps users start using Jiwar without installing it on their devices. 
 
 
@@ -84,7 +84,7 @@ Jiwar is an open-source Python tool for generating orthographic, phonological, a
 | C (Clustering Coefficient) | Measures how interconnected a word's neighbors are |
 | Neighborhood Frequency | Statistics about the frequencies of neighboring words |
 
-## Supported Language 
+## Supported Languages
 
 - Jiwar supports 40 languages with built-in corpus, and around 90 language varieties with custom corpus.
 - For languages without a built-in corpus, you'll need to provide a [custom corpus](https://github.com/AlaaAlzahrani/Jiwar/blob/master/docs/CUSTOM_CORPUS.md) to use Jiwar.
