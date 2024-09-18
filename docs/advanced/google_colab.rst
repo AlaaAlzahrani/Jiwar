@@ -1,7 +1,7 @@
 Using Jiwar in Google Colab
 ===========================
 
-Google Colab provides a free, cloud-based environment for running Python code, including data analysis tools like Jiwar. This guide will help you use Jiwar in Google Colab using the provided Jiwar_Tutorial.ipynb notebook.
+Google Colab provides a free, cloud-based environment for running Python code. This guide will help you use Jiwar in Google Colab using the provided Jiwar_Tutorial.ipynb notebook.
 
 Getting Started with Jiwar in Google Colab
 ------------------------------------------
@@ -82,8 +82,6 @@ Tips for Using Jiwar in Colab
 1. **Input Files**: Ensure your input files (word lists and custom corpora) are accessible in the Colab environment. You can upload them directly to Colab or store them in Google Drive and mount your drive.
 
 2. **Output**: Jiwar will save the results as a CSV file. In Colab, you can download this file or save it to your Google Drive for further analysis.
-
-3. **Package Conflicts**: If you experience package conflicts, refer to the "Handling Package Conflicts" section in the notebook for troubleshooting steps.
 
 Troubleshooting
 ---------------

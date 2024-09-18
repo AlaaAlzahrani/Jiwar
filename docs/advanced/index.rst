@@ -12,7 +12,6 @@ Topics covered in this section:
 
 1. :doc:`Using Jiwar in Google Colab <google_colab>`
    - Setting up Jiwar in a Google Colab environment
-   - Handling potential package conflicts
    - Tips for efficient usage in Colab
 
 Future topics may include:
@@ -21,4 +20,4 @@ Future topics may include:
 - Integrating Jiwar with other NLP tools
 - Custom measure development
 
-If you have suggestions for additional advanced topics, please feel free to contribute.
+If you have suggestions for additional advanced topics, please feel free to contribute or reach out to the author.
