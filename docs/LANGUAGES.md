@@ -16,6 +16,7 @@ These languages have pre-loaded corpora and can be used immediately with Jiwar:
 | el | Greek |
 | en-gb | English (GB) |
 | en-us | English (US) |
+| eo | Esperanto |
 | es | Spanish |
 | et | Estonian |
 | eu | Basque |
@@ -24,11 +25,14 @@ These languages have pre-loaded corpora and can be used immediately with Jiwar:
 | fr | French |
 | hr | Croatian |
 | hu | Hungarian |
+| hy | Armenian |
 | id | Indonesian |
 | it | Italian |
+| kk | Kazakh |
 | ko | Korean |
 | lt | Lithuanian |
 | lv | Latvian |
+| mk | Macedonian |
 | ms | Malay |
 | nl | Dutch |
 | no | Norwegian |

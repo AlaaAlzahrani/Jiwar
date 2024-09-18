@@ -8,7 +8,7 @@ from handlers.file_handler import FileReader
 from handlers.corpus_handler import CorpusHandler
 from handlers.output_handler import OutputHandler
 from calculator import IPA_generator, orthographic, phonological, phonographic
-from handlers.language_mapping import get_language_code, is_supported_language, get_supported_languages_info
+from handlers.language_mapping import get_language_code, get_supported_languages_info
 
 def process_chunk(args):
     chunk, corpus_data, selected_measures, frequency_cols, include_ipa = args
