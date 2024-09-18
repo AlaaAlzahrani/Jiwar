@@ -1,4 +1,3 @@
-import os
 import io
 import re
 import unicodedata 
@@ -18,12 +17,9 @@ class FileReader:
         self.output_dir = self.base_dir / "data" / "processed"
 
     def read_input_file(self, filename):
-        file_path = Path(filename)
-        if not file_path.is_absolute():
-            file_path = self.input_dir / file_path
-
-        if not file_path.exists():
-            raise FileNotFoundError(f"File not found: {filename}\nPlease make sure the file exists at the specified location.")
+        file_path = self.get_file_path(filename)
+        if not file_path:
+            raise FileNotFoundError(f"File not found: {filename}\nPlease make sure the file exists in the current directory, the input directory, or provide the full path.")
         
         raw_data = self._read_file_as_text(file_path)
         cleaned_data = self._clean_white_spaces(raw_data)
@@ -31,6 +27,20 @@ class FileReader:
         self._clean_input()
         self._save_as_tsv(self.input_data, self.output_dir / f"{file_path.stem}_processed.tsv")
         return self.input_data
+
+    def get_file_path(self, filename):
+        if Path(filename).is_absolute():
+            return Path(filename) if Path(filename).exists() else None
+        
+        cwd_path = Path.cwd() / filename
+        if cwd_path.exists():
+            return cwd_path
+        
+        input_path = self.input_dir / filename
+        if input_path.exists():
+            return input_path
+        
+        return None
 
     def _read_file_as_text(self, file_path):
         try:

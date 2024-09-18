@@ -172,8 +172,8 @@ def main():
 
     while True:
             input_file = input("Enter the path to your input file:\n"
-                            "- For a file in the default input directory, just enter the filename (e.g., en_words.csv)\n"
-                            "- For a file elsewhere, enter the full path (e.g., C:/Users/YourName/Documents/en_words.csv)\n"
+                            "- Enter just the filename to look in the current directory or Jiwar's input directory\n"
+                            "- Or enter the full path to the file\n"
                             "Your input: ")
             if input_file.lower() == 'exit':
                 print("Exiting Jiwar.")
@@ -185,8 +185,10 @@ def main():
                 break
             except FileNotFoundError as e:
                 print(f"Error: {e}")
-                print("Please make sure you've entered the correct path or filename.")
-                print("If using a relative path, the file should be in the Jiwar input directory.")
+                print("Jiwar looked for the file in the following locations:")
+                print(f"1. Current working directory: {Path.cwd()}")
+                print(f"2. Jiwar's input directory: {file_reader.input_dir}")
+                print("Please make sure you've entered the correct filename or path.")
                 print("You can type 'exit' to quit the program.")
             except Exception as e:
                 print(f"Error reading input file: {e}")
