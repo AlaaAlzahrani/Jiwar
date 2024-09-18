@@ -29,8 +29,8 @@ Jiwar is an open-source Python tool for generating orthographic, phonological, a
 
 ![alt text](https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)
 
-   - An interactive Google colab notebook is provided to help users start using Jiwar without installing it on their device. 
-   - Click [HERE](https://colab.research.google.com/drive/1f_n7uuimT8MReaOW4U4LP8dAUVtY2hAq) to use the notebook.
+   - Click [HERE](https://colab.research.google.com/drive/1f_n7uuimT8MReaOW4U4LP8dAUVtY2hAq) to use an interactive Google colab notebook.
+   - This online notebook helps users start using Jiwar without installing it on their devices. 
 
 
 ## Quick Start
