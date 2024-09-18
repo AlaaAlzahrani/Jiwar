@@ -134,13 +134,8 @@ def main():
             print("Unsupported language. Please try again.")
             print(get_supported_languages_info())
 
-
     if corpus_handler.has_built_in_corpus(language_code):
         use_built_in = input(f"A built-in corpus is available for {language_input}. Do you want to use it? (y/n): ").lower() == 'y'
-        if use_built_in:
-            corpus_data = corpus_handler.load_corpus(language_input)
-        else:
-            use_built_in = False
     else:
         use_built_in = False
         print(f"\nATTENTION: No built-in corpus is available for {language_input} in Jiwar.")
@@ -148,15 +143,14 @@ def main():
         print("\nCustom Corpus Requirements:")
         print("1. The corpus should be in CSV or Excel format.")
         print("2. It must contain at least a 'word' column with the words in your language.")
-        print("3. For frequency-based measures, include columns starting with 'frequency_'.")
-        print("4. Place your corpus file in the 'user_loaded' directory within the Jiwar data folder.")
+        print("3. For frequency-based measures, include columns with names containing 'frequency' or 'freq'.")
+        print("4. Place your corpus file in the 'user_loaded' directory within the Jiwar data folder, or provide the full path.")
         print("\nPlease prepare your custom corpus now if you haven't already.")
         input("Press Enter when you're ready to proceed...")
 
-
     if not use_built_in:
         while True:
-            corpus_filename = input("Enter the filename of your custom corpus (should be in the user_loaded directory), or type 'exit' to quit: ")
+            corpus_filename = input("Enter the filename or full path of your custom corpus, or type 'exit' to quit: ")
             
             if corpus_filename.lower() == 'exit':
                 print("Exiting Jiwar.")
@@ -164,13 +158,17 @@ def main():
             
             try:
                 corpus_data = corpus_handler.load_corpus(language_input, use_user_corpus=True, corpus_filename=corpus_filename)
+                print("Corpus loaded successfully.")
+                print(f"Corpus info: {corpus_handler.corpus_info()}")
+                print(f"Frequency columns found: {corpus_handler.get_frequency_columns()}")
                 break
             except FileNotFoundError as e:
                 print(e)
-                print("Please try again with a valid filename or type 'exit' to quit.")
+                print("Please try again with a valid filename or full path, or type 'exit' to quit.")
             except ValueError as e:
                 print(f"Error loading corpus: {e}")
                 print("Please ensure your corpus meets the minimum requirements and try again, or type 'exit' to quit.")
+
 
     while True:
         input_file = input("Enter the full path to your input file (e.g., D:/jiwar/data/input/en_words.csv): ")

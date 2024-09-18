@@ -2,6 +2,7 @@ import polars as pl
 from pathlib import Path
 from .file_handler import FileReader
 from .language_mapping import get_language_code, LANGUAGE_MAPPING
+import os
 import openpyxl
 
 class CorpusHandler:
@@ -12,7 +13,6 @@ class CorpusHandler:
         self.corpus_data = None
         self.current_language = None
         self.frequency_columns = None
-        self.file_reader = FileReader()
 
     def has_built_in_corpus(self, language_code):
         built_in_languages = [
@@ -40,7 +40,9 @@ class CorpusHandler:
 
         if use_user_corpus or not self.has_built_in_corpus(language_code):
             if corpus_filename:
-                user_corpus_file = self.user_corpus_dir / corpus_filename
+                user_corpus_file = Path(corpus_filename)
+                if not user_corpus_file.is_absolute():
+                    user_corpus_file = self.user_corpus_dir / corpus_filename
             else:
                 user_corpus_file = self.user_corpus_dir / f"{language_code}_user_corpus.csv"
             
@@ -57,7 +59,8 @@ class CorpusHandler:
                 raise FileNotFoundError(
                     f"User corpus file not found: {user_corpus_file}\n"
                     f"Please ensure your corpus file is located in the following directory:\n"
-                    f"{self.user_corpus_dir}"
+                    f"{self.user_corpus_dir}\n"
+                    f"Or provide the full path to your corpus file."
                 )
         else:
             self.corpus_data = self._load_subtitle_corpus(language_code)
@@ -105,15 +108,19 @@ class CorpusHandler:
     def _select_frequency_columns(self, use_user_corpus):
         available_columns = self.corpus_data.columns
         if use_user_corpus:
-            frequency_columns = [col for col in available_columns if col.startswith('frequency_')]
+            frequency_columns = [col for col in available_columns if 'frequency' in col.lower() or 'freq' in col.lower()]
             if not frequency_columns:
-                raise ValueError("User corpus does not contain any columns starting with 'frequency_'.")
-            self.frequency_columns = frequency_columns[:2]  
+                print("Warning: No columns containing 'frequency' or 'freq' found in the corpus.")
+                print("Available columns:", available_columns)
+                print("Frequency-based measures will not be available.")
+            self.frequency_columns = frequency_columns[:2]  # Use the first two frequency columns found
         else:
             if 'freq_per_m' in available_columns and 'zipf' in available_columns:
                 self.frequency_columns = ['freq_per_m', 'zipf']
             else:
-                raise ValueError("Subtitle corpus is missing required frequency columns.")
+                print("Warning: Required frequency columns 'freq_per_m' and 'zipf' not found in subtitle corpus.")
+                print("Available columns:", available_columns)
+                print("Frequency-based measures will not be available.")
 
     def _validate_corpus(self):
         if 'word' not in self.corpus_data.columns:
@@ -123,7 +130,7 @@ class CorpusHandler:
         if not self.frequency_columns:
             print("Warning: No valid frequency columns found in the corpus. "
                   "Frequency-based measures will not be available.")
-            print("To include frequency information, add columns starting with 'frequency_' to your corpus.")
+            print("To include frequency information, add columns with names containing 'frequency' or 'freq' to your corpus.")
         else:
             for freq_col in self.frequency_columns:
                 if freq_col not in self.corpus_data.columns:
@@ -135,7 +142,6 @@ class CorpusHandler:
                 if self.corpus_data.filter(pl.col(freq_col).is_null()).height > 0:
                     raise ValueError(f"The '{freq_col}' column contains non-numeric values. "
                                      "Please ensure all frequency values are numeric.")
-        
         if 'IPA' in self.corpus_data.columns:
             self.corpus_data = self.corpus_data.with_columns(
                 pl.col('IPA').map_elements(FileReader._remove_accents, return_dtype=pl.Utf8)
