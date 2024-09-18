@@ -1,5 +1,6 @@
 import polars as pl
 from tqdm import tqdm
+import os
 from pathlib import Path
 from multiprocessing import Pool, cpu_count
 from calculator import utils
@@ -170,6 +171,7 @@ def main():
                 print(f"Error loading corpus: {e}")
                 print("Please ensure your corpus meets the minimum requirements and try again, or type 'exit' to quit.")
 
+
     file_reader = FileReader()
     while True:
         input_file = input("Enter the path to your input file:\n"
@@ -179,24 +181,34 @@ def main():
         if input_file.lower() == 'exit':
             print("Exiting Jiwar.")
             return
-        try:
-            input_data = file_reader.read_input_file(input_file)
-            print(f"Input data columns: {input_data.columns}")
+        
+        possible_paths = [
+            Path(input_file),
+            Path.cwd() / input_file,
+            file_reader.input_dir / input_file,
+            Path(os.path.expanduser(input_file))  
+        ]
+        
+        file_found = False
+        for path in possible_paths:
+            if path.is_file():
+                try:
+                    input_data = file_reader.read_input_file(str(path))
+                    print(f"Input data columns: {input_data.columns}")
+                    file_found = True
+                    break
+                except Exception as e:
+                    print(f"Error reading input file: {e}")
+        
+        if file_found:
             break
-        except FileNotFoundError as e:
-            print(f"Error: {e}")
-            print("Jiwar looked for the file in the following locations:")
-            print(f"1. Current working directory: {Path.cwd()}")
-            print(f"2. Jiwar's input directory: {file_reader.input_dir}")
+        else:
+            print("File not found. Jiwar looked for the file in the following locations:")
+            for path in possible_paths:
+                print(f"- {path}")
             print("Please make sure you've entered the correct filename or path.")
             print("You can type 'exit' to quit the program.")
-        except Exception as e:
-            print(f"Error reading input file: {e}")
-            print("Please try again or type 'exit' to quit.")
-        
-        if input_file.lower() == 'exit':
-            print("Exiting Jiwar.")
-            return
+
 
     while True:
         measure_input = input("Enter the type of measures to calculate (all, orth, phon, pg, or a combination separated by commas): ").lower()
