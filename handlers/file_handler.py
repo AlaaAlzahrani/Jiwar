@@ -3,6 +3,7 @@ import io
 import re
 import unicodedata 
 import polars as pl
+from pathlib import Path
 
 def strip_white_spaces(s):
     """Strip leading and trailing whitespace and replace multiple spaces with a single space."""
@@ -12,20 +13,23 @@ class FileReader:
     def __init__(self, max_input=100000):
         self.max_input = max_input
         self.input_data = None
-        self.base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        self.input_dir = os.path.join(self.base_dir, "data", "input")
-        self.output_dir = os.path.join(self.base_dir, "data", "processed")
+        self.base_dir = Path(__file__).parent.parent
+        self.input_dir = self.base_dir / "data" / "input"
+        self.output_dir = self.base_dir / "data" / "processed"
 
     def read_input_file(self, filename):
-        file_path = os.path.join(self.input_dir, filename)
-        if not os.path.exists(file_path):
-            raise FileNotFoundError(f"File not found: {filename}\nPlease make sure the file is in the 'data/input' directory.")
+        file_path = Path(filename)
+        if not file_path.is_absolute():
+            file_path = self.input_dir / file_path
+
+        if not file_path.exists():
+            raise FileNotFoundError(f"File not found: {filename}\nPlease make sure the file exists at the specified location.")
         
         raw_data = self._read_file_as_text(file_path)
         cleaned_data = self._clean_white_spaces(raw_data)
         self.input_data = self._convert_to_polars(cleaned_data)
         self._clean_input()
-        self._save_as_tsv(self.input_data, os.path.join(self.output_dir, f"{os.path.splitext(filename)[0]}_processed.tsv"))
+        self._save_as_tsv(self.input_data, self.output_dir / f"{file_path.stem}_processed.tsv")
         return self.input_data
 
     def _read_file_as_text(self, file_path):
@@ -42,7 +46,7 @@ class FileReader:
             raise IOError(f"Unable to determine the correct encoding for file {file_path}")
         except Exception as e:
             raise IOError(f"Error reading file {file_path}: {str(e)}")
-
+        
     def _clean_white_spaces(self, data):
         return '\n'.join(strip_white_spaces(line) for line in data.split('\n') if line.strip())
 

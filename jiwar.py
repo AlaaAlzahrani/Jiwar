@@ -171,31 +171,30 @@ def main():
 
 
     while True:
-        input_file = input("Enter the full path to your input file (e.g., D:/jiwar/data/input/en_words.csv): ")
-        if input_file.lower() == 'exit':
-            print("Exiting Jiwar.")
-            return
-        try:
-            file_reader = FileReader()
-            input_data = file_reader.read_input_file(input_file)
-            print(f"Input data columns: {input_data.columns}")
-            break
-        except FileNotFoundError as e:
-            print(f"Error: {e}")
-            print("Please enter the complete path to your input file, including the Jiwar directory.")
-            print("Examples:")
-            print("  - Windows: D:\\jiwar\\data\\input\\en_words.csv")
-            print("  - macOS/Linux: /home/user/jiwar/data/input/en_words.csv")
-            print("Make sure the file exists at the specified location within the Jiwar directory structure.")
-            print("You can type 'exit' to quit the program.")
-        except Exception as e:
-            print(f"Error reading input file: {e}")
-            print("Please try again or type 'exit' to quit.")
-        
-        if input_file.lower() == 'exit':
-            print("Exiting Jiwar.")
-            return
-    
+            input_file = input("Enter the path to your input file:\n"
+                            "- For a file in the default input directory, just enter the filename (e.g., en_words.csv)\n"
+                            "- For a file elsewhere, enter the full path (e.g., C:/Users/YourName/Documents/en_words.csv)\n"
+                            "Your input: ")
+            if input_file.lower() == 'exit':
+                print("Exiting Jiwar.")
+                return
+            try:
+                file_reader = FileReader()
+                input_data = file_reader.read_input_file(input_file)
+                print(f"Input data columns: {input_data.columns}")
+                break
+            except FileNotFoundError as e:
+                print(f"Error: {e}")
+                print("Please make sure you've entered the correct path or filename.")
+                print("If using a relative path, the file should be in the Jiwar input directory.")
+                print("You can type 'exit' to quit the program.")
+            except Exception as e:
+                print(f"Error reading input file: {e}")
+                print("Please try again or type 'exit' to quit.")
+            
+            if input_file.lower() == 'exit':
+                print("Exiting Jiwar.")
+                return
 
     while True:
         measure_input = input("Enter the type of measures to calculate (all, orth, phon, pg, or a combination separated by commas): ").lower()
