@@ -1,3 +1,4 @@
+import io
 import re
 import unicodedata 
 import polars as pl
