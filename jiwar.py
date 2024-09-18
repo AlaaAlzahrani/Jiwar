@@ -172,6 +172,27 @@ def main():
                 print("Please ensure your corpus meets the minimum requirements and try again, or type 'exit' to quit.")
 
 
+    try:
+        if use_built_in:
+            corpus_data = corpus_handler.load_corpus(language_input)
+            print("Built-in corpus loaded successfully.")
+        else:
+            while True:
+                corpus_filename = input("Enter the filename or full path of your custom corpus, or type 'exit' to quit: ")
+                if corpus_filename.lower() == 'exit':
+                    print("Exiting Jiwar.")
+                    return
+                try:
+                    corpus_data = corpus_handler.load_corpus(language_input, use_user_corpus=True, corpus_filename=corpus_filename)
+                    print("Custom corpus loaded successfully.")
+                    break
+                except FileNotFoundError as e:
+                    print(e)
+                    print("Please try again with a valid filename or full path, or type 'exit' to quit.")
+    except Exception as e:
+        print(f"Error loading corpus: {e}")
+        return
+
     while True:
             input_file = input("Enter the path to your input file:\n"
                             "- Enter just the filename to look in the current directory or Jiwar's input directory\n"
