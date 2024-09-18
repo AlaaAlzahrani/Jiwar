@@ -20,7 +20,8 @@ Scenario 1: Calculating All Measures for English Words
 3. When prompted, enter:
 
    - Language: ``English`` or ``en-us``
-   - Input file: ``english_words.csv``
+   - Use built-in corpus: ``y`` (short for 'yes')
+   - Input file: ``C:/documents/jiwar/data/input/english_words.csv``
    - Measures: ``all``
 
 Scenario 2: Calculating Only Orthographic Measures for Spanish Words
@@ -31,7 +32,8 @@ Scenario 2: Calculating Only Orthographic Measures for Spanish Words
 3. When prompted, enter:
 
    - Language: ``Spanish`` or ``es``
-   - Input file: ``spanish_words.csv``
+   - Use built-in corpus: ``y`` (short for 'yes')
+   - Input file: ``C:/documents/jiwar/data/input/spanish_words.csv``
    - Measures: ``orth``
 
 Scenario 3: Using a Custom Corpus for Hindi
@@ -43,9 +45,9 @@ Scenario 3: Using a Custom Corpus for Hindi
 4. When prompted, enter:
 
    - Language: ``Hindi`` or ``hi``
-   - Use built-in corpus: ``n`` (since Hindi doesn't have a built-in corpus)
+   - Use built-in corpus: ``n`` (short for 'no'; since Hindi doesn't have a built-in corpus)
    - Custom corpus filename: ``hindi_corpus.csv``
-   - Input file: ``hindi_words.csv``
+   - Input file: ``C:/documents/jiwar/data/input/hindi_words.csv``
    - Measures: Choose your desired measures (e.g., ``all``, ``orth,phon``, etc.)
 
 Tips
@@ -53,7 +55,7 @@ Tips
 
 - If you're unsure about the supported languages or measures, type ``help`` at any prompt for more information.
 - To exit the program at any time, type ``exit`` at any prompt.
-- For languages without built-in IPA support, consider adding an 'IPA' column to your input file for phonological and phonographic measures.
+- For languages without built-in IPA support, consider adding an 'IPA' column to your custom corpus for the generation of phonological and phonographic measures.
 
 For more information on specific measures, see :doc:`measures/index`.
 For language support details, see :doc:`languages/index`.

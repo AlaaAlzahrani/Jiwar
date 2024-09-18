@@ -78,27 +78,24 @@ Jiwar is an open-source Python tool for generating orthographic, phonological, a
 
 | Measure | Description |
 |---------|-------------|
-| N (Neighborhood Size) | Number of words that differ by one letter/phoneme via substitution |
-| Density | Number of words that that differ by one letter/phoneme via substitution, addition, or deletion |
-| OLD20/PLD20/PGLD20 | Average Levenshtein distance of the 20 closest neighbors |
-| C (Clustering Coefficient) | Measures how interconnected a word's neighbors are |
-| Neighborhood Frequency | Statistics about the frequencies of neighboring words |
+| N (Neighborhood Size) | Number and forms of words that differ from the target word by one letter/phoneme via substitution only |
+| Density | Number and forms of words that that differ from the target word by one letter/phoneme via substitution, addition, or deletion |
+| OLD20/PLD20/PGLD20 | Average Levenshtein distance of the 20 closest neighbors to the target word |
+| C (Clustering Coefficient) | Measures the extent to which a given word's neighbors are also neighbors of each other |
+| Neighborhood Frequency | Descriptive statistics (Mean, SD) about the frequencies of neighboring words |
 
 ## Supported Languages
 
 - Jiwar supports 40 languages with built-in corpus, and around 90 language varieties with custom corpus.
-- For languages without a built-in corpus, you'll need to provide a [custom corpus](https://github.com/AlaaAlzahrani/Jiwar/blob/master/docs/CUSTOM_CORPUS.md) to use Jiwar.
+- For languages without a built-in corpus, you'll need to provide a [custom corpus](https://jiwar.readthedocs.io/en/latest/languages/custom_corpus.html) to use Jiwar.
 
 
 
+## Documentation 
 
-## Documentation
+For more detailed instructions, examples, and everything you need to know, check out our fully documented guide here:
 
-For more detailed instructions and examples, check the following:
-- [Supported Measures](https://github.com/AlaaAlzahrani/Jiwar/blob/master/docs/MEASURES.md)
-- [Supported Languages](https://github.com/AlaaAlzahrani/Jiwar/blob/master/docs/LANGUAGES.md)
-- [Creating Custom Corpora](https://github.com/AlaaAlzahrani/Jiwar/blob/master/docs/CUSTOM_CORPUS.md)
-- [Detailed Usage Instructions](https://github.com/AlaaAlzahrani/Jiwar/blob/master/docs/USAGE.md)
+👉 [Jiwar Documentation](https://jiwar.readthedocs.io/en/latest/index.html)
 
 
 ## License

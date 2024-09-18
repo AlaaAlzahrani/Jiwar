@@ -7,17 +7,21 @@ Phonological N (phon_N)
 -----------------------
 **Full Name:** Phonological Neighborhood Size
 
-**Description:** Number of words that differ by one phoneme (substitution only).
+**Description:** Number and forms of words that differ by one phoneme via substitution only.
 
-**Output Column:** ``phon_N``
+**Output Columns:** 
+- ``phon_N``: Number of phonological neighbors which differ from the target word by one phoneme via substitution only.
+- ``phon_N_nbrs``: A list of the forms of phonological neighbors identified in 'phon_N'
 
 Phonological Density (phon_density)
 -----------------------------------
 **Full Name:** Phonological Neighborhood Density
 
-**Description:** Number of words within a phonological Levenshtein distance of 1 (substitution, addition, or deletion).
+**Description:** Number and forms of words which differ from the target word by one phoneme via substitution, addition, or deletion.
 
-**Output Column:** ``phon_density``
+**Output Columns:** 
+- ``phon_density``: Number of phonological neighbors which differ from the target word by one phoneme via substitution, addition, or deletion
+- ``phon_density_nbrs``: A list of the forms of phonological neighbors identified in 'phon_density'
 
 PLD20
 -----
@@ -31,7 +35,7 @@ Phonological C (phon_C)
 -----------------------
 **Full Name:** Phonological Clustering Coefficient
 
-**Description:** Measures how interconnected a word's phonological neighbors are.
+**Description:** Measures the extent to which a word's phonological neighbors are also phonological neighbors of each other.
 
 **Output Column:** ``phon_C``
 
@@ -39,12 +43,14 @@ Phonological Neighbor Frequency
 -------------------------------
 **Full Name:** Phonological Neighborhood Frequency
 
-**Description:** Statistics about the frequencies of phonological neighboring words.
+**Description:** Statistics about the frequencies of phonological neighboring words. In this measure, neighbors are defined as words differing by one phoneme via substitution, addition, or deletion.
 
 **Output Columns:** 
-- ``phon_nbr_fpm_m``: Mean frequency per million of phonological neighbors
-- ``phon_nbr_fpm_SD``: Standard deviation of frequency per million of phonological neighbors
-- ``phon_nbr_fpm_higher_m``: Mean frequency per million of higher frequency phonological neighbors
-- ``phon_nbr_fpm_lower_m``: Mean frequency per million of lower frequency phonological neighbors
-
-Note: Additional frequency columns may be available depending on the corpus used.
+- ``phon_nbr_fpm_m``: The mean frequency per million (fpm) of phonological neighbors.
+- ``phon_nbr_fpm_SD``: The standard deviation of the frequency per million (fpm) of phonological neighbors.
+- ``phon_nbr_fpm_higher_m``: The mean frequency per million (fpm) of phonological neighbors that have a higher frequency than the target word.
+- ``phon_nbr_fpm_lower_m``: The mean frequency per million (fpm) of phonological neighbors that have a lower frequency than the target word.
+- ``phon_nbr_zipf_m``: The mean Zipf value of phonological neighbors.
+- ``phon_nbr_zipf_SD``: The standard deviation of the Zipf values of phonological neighbors.
+- ``phon_nbr_zipf_higher_m``: The mean Zipf value of phonological neighbors that have a higher frequency than the target word.
+- ``phon_nbr_zipf_lower_m``: The mean Zipf value of phonological neighbors that have a lower frequency than the target word.

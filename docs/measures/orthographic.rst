@@ -7,17 +7,21 @@ Orthographic N (orth_N)
 -----------------------
 **Full Name:** Orthographic Neighborhood Size
 
-**Description:** Number of words that differ by one letter (substitution only).
+**Description:** Number and forms of words that differ by one letter via substitution only.
 
-**Output Column:** ``orth_N``
+**Output Columns:** 
+- ``orth_N``: Number of orthographic neighbors which differ from the target word by one letter via substitution only.
+- ``orth_N_nbr``: A list of the forms of orthographic neighbors identified in 'orth_N'
 
 Orthographic Density (orth_density)
 -----------------------------------
 **Full Name:** Orthographic Neighborhood Density
 
-**Description:** Number of words within an orthographic Levenshtein distance of 1 (substitution, addition, or deletion).
+**Description:** Number and forms of words which differ from the target word by one letter via substitution, addition, or deletion.
 
-**Output Column:** ``orth_density``
+**Output Columns:** 
+- ``orth_density``: Number of orthographic neighbors which differ from the target word by one letter via substitution, addition, or deletion
+- ``orth_density_nbrs``: A list of the forms of orthographic neighbors identified in 'orth_density'
 
 OLD20
 -----
@@ -31,7 +35,7 @@ Orthographic C (orth_C)
 -----------------------
 **Full Name:** Orthographic Clustering Coefficient
 
-**Description:** Measures how interconnected a word's orthographic neighbors are.
+**Description:** Measures the extent to which a word's orthographic neighbors are also orthographic neighbors of each other.
 
 **Output Column:** ``orth_C``
 
@@ -39,12 +43,14 @@ Orthographic Neighbor Frequency
 -------------------------------
 **Full Name:** Orthographic Neighborhood Frequency
 
-**Description:** Statistics about the frequencies of orthographic neighboring words.
+**Description:** Statistics about the frequencies of orthographic neighboring words. In this measure, neighbors are defined as words differing by one letter via substitution, addition, or deletion.
 
 **Output Columns:** 
-- ``orth_nbr_fpm_m``: Mean frequency per million of orthographic neighbors
-- ``orth_nbr_fpm_SD``: Standard deviation of frequency per million of orthographic neighbors
-- ``orth_nbr_fpm_higher_m``: Mean frequency per million of higher frequency orthographic neighbors
-- ``orth_nbr_fpm_lower_m``: Mean frequency per million of lower frequency orthographic neighbors
-
-Note: Additional frequency columns may be available depending on the corpus used.
+- ``orth_nbr_fpm_m``: The mean frequency per million (fpm) of orthographic neighbors.
+- ``orth_nbr_fpm_SD``: The standard deviation of the frequency per million (fpm) of orthographic neighbors.
+- ``orth_nbr_fpm_higher_m``: The mean frequency per million (fpm) of orthographic neighbors that have a higher frequency than the target word.
+- ``orth_nbr_fpm_lower_m``: The mean frequency per million (fpm) of orthographic neighbors that have a lower frequency than the target word.
+- ``orth_nbr_zipf_m``: The mean Zipf value of orthographic neighbors.
+- ``orth_nbr_zipf_SD``: The standard deviation of the Zipf values of orthographic neighbors.
+- ``orth_nbr_zipf_higher_m``: The mean Zipf value of orthographic neighbors that have a higher frequency than the target word.
+- ``orth_nbr_zipf_lower_m``: The mean Zipf value of orthographic neighbors that have a lower frequency than the target word.
