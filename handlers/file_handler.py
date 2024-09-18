@@ -1,8 +1,8 @@
-import polars as pl
-from pathlib import Path
+import os
 import io
 import re
 import unicodedata 
+import polars as pl
 
 def strip_white_spaces(s):
     """Strip leading and trailing whitespace and replace multiple spaces with a single space."""
@@ -12,20 +12,26 @@ class FileReader:
     def __init__(self, max_input=100000):
         self.max_input = max_input
         self.input_data = None
-        self.base_dir = Path(__file__).parent.parent
-        self.input_dir = self.base_dir / "data" / "input"
-        self.output_dir = self.base_dir / "data" / "processed"
+        self.base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        self.input_dir = os.path.join(self.base_dir, "data", "input")
+        self.output_dir = os.path.join(self.base_dir, "data", "processed")
 
     def read_input_file(self, filename):
-        file_path = self.input_dir / filename
+        file_path = os.path.join(self.input_dir, filename)
         print(f"Attempting to read file: {file_path}")
-        if not file_path.exists():
-            raise FileNotFoundError(f"File not found: {filename}\nFull path: {file_path}\nContents of input directory: {list(self.input_dir.glob('*'))}")
+        print(f"Current working directory: {os.getcwd()}")
+        print(f"Input directory: {self.input_dir}")
+        print(f"Does input directory exist? {os.path.exists(self.input_dir)}")
+        print(f"Contents of input directory: {os.listdir(self.input_dir) if os.path.exists(self.input_dir) else 'Directory does not exist'}")
+        
+        if not os.path.exists(file_path):
+            raise FileNotFoundError(f"File not found: {filename}\nFull path: {file_path}\nContents of input directory: {os.listdir(self.input_dir) if os.path.exists(self.input_dir) else 'Directory does not exist'}")
+        
         raw_data = self._read_file_as_text(file_path)
         cleaned_data = self._clean_white_spaces(raw_data)
         self.input_data = self._convert_to_polars(cleaned_data)
         self._clean_input()
-        self._save_as_tsv(self.input_data, self.output_dir / f"{Path(filename).stem}_processed.tsv")
+        self._save_as_tsv(self.input_data, os.path.join(self.output_dir, f"{os.path.splitext(filename)[0]}_processed.tsv"))
         return self.input_data
 
     def _read_file_as_text(self, file_path):
@@ -58,15 +64,18 @@ class FileReader:
         if len(self.input_data) == 0:
             raise ValueError("The input file contains no data.")
 
+        # Clean column names
         clean_col_names = [
             re.sub(r'[^\w\s]', '', col).strip().replace(' ', '_').lower()
             for col in self.input_data.columns
         ]
         self.input_data = self.input_data.rename(dict(zip(self.input_data.columns, clean_col_names)))
 
+        # Ensure 'word' column exists
         if 'word' not in self.input_data.columns:
             raise ValueError("The input file must contain a 'word' column.")
 
+        # Remove rows with empty words
         initial_row_count = len(self.input_data)
         self.input_data = self.input_data.filter(pl.col('word').is_not_null() & (pl.col('word') != ""))
         rows_removed = initial_row_count - len(self.input_data)
