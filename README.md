@@ -19,6 +19,20 @@ Jiwar is an open-source Python tool for analyzing orthographic, phonological, an
    cd Jiwar
    ```
 
+2. Create and activate a virtual environment:
+
+- _For Windows:_
+   ```
+   virtualenv -p python3 venv
+   .\venv\Scripts\activate.ps1
+   ```
+
+- _For macOS and Linux:_
+   ```
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+
 2. Install dependencies:
    ```
    pip install -r requirements.txt
@@ -31,7 +45,7 @@ Jiwar is an open-source Python tool for analyzing orthographic, phonological, an
 
 ## Usage
 
-1. Prepare your input file (CSV or Excel) with a 'word' column.
+1. Prepare your input file (csv, xlsx, txt, tsv) with a 'word' column.
 2. Run `python jiwar.py` and follow the prompts.
 3. Select your desired language and measures.
 4. Jiwar will process your input and save the results.
