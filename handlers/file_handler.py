@@ -12,7 +12,7 @@ class FileReader:
     def __init__(self, max_input=100000):
         self.max_input = max_input
         self.input_data = None
-        self.base_dir = Path(__file__).parent.parent.resolve()
+        self.base_dir = Path(__file__).parent.parent
         self.input_dir = self.base_dir / "data" / "input"
         self.output_dir = self.base_dir / "data" / "processed"
 
@@ -28,19 +28,25 @@ class FileReader:
         self._save_as_tsv(self.input_data, self.output_dir / f"{file_path.stem}_processed.tsv")
         return self.input_data
 
+    
     def get_file_path(self, filename):
         if Path(filename).is_absolute():
+            print(f"Checking absolute path: {filename}")
             return Path(filename) if Path(filename).exists() else None
         
         cwd_path = Path.cwd() / filename
+        print(f"Checking current working directory: {cwd_path}")
         if cwd_path.exists():
             return cwd_path
         
         input_path = self.input_dir / filename
+        print(f"Checking input directory: {input_path}")
         if input_path.exists():
             return input_path
         
+        print("File not found.")
         return None
+
 
     def _read_file_as_text(self, file_path):
         try:
