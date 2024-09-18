@@ -12,7 +12,7 @@ class FileReader:
     def __init__(self, max_input=100000):
         self.max_input = max_input
         self.input_data = None
-        self.base_dir = Path(__file__).parent.parent
+        self.base_dir = Path(__file__).parent.parent.resolve()
         self.input_dir = self.base_dir / "data" / "input"
         self.output_dir = self.base_dir / "data" / "processed"
 
