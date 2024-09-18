@@ -175,38 +175,24 @@ def main():
     file_reader = FileReader()
     while True:
         input_file = input("Enter the path to your input file:\n"
-                           "- Enter just the filename to look in the current directory or Jiwar's input directory\n"
-                           "- Or enter the full path to the file\n"
-                           "Your input: ")
+                        "- Enter just the filename to look in the current directory or Jiwar's input directory\n"
+                        "- Or enter the full path to the file\n"
+                        "Your input: ")
         if input_file.lower() == 'exit':
             print("Exiting Jiwar.")
             return
         
-        possible_paths = [
-            Path(input_file),
-            Path.cwd() / input_file,
-            file_reader.input_dir / input_file,
-            Path(os.path.expanduser(input_file))  
-        ]
+        file_path = file_reader.get_file_path(input_file)
         
-        file_found = False
-        for path in possible_paths:
-            if path.is_file():
-                try:
-                    input_data = file_reader.read_input_file(str(path))
-                    print(f"Input data columns: {input_data.columns}")
-                    file_found = True
-                    break
-                except Exception as e:
-                    print(f"Error reading input file: {e}")
-        
-        if file_found:
-            break
+        if file_path:
+            try:
+                input_data = file_reader.read_input_file(str(file_path))
+                print(f"Input data columns: {input_data.columns}")
+                break
+            except Exception as e:
+                print(f"Error reading input file: {e}")
         else:
-            print("File not found. Jiwar looked for the file in the following locations:")
-            for path in possible_paths:
-                print(f"- {path}")
-            print("Please make sure you've entered the correct filename or path.")
+            print("File not found. Please make sure you've entered the correct filename or path.")
             print("You can type 'exit' to quit the program.")
 
 

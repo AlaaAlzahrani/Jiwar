@@ -2,7 +2,6 @@ import polars as pl
 from pathlib import Path
 from .file_handler import FileReader
 from .language_mapping import get_language_code, LANGUAGE_MAPPING
-import os
 import openpyxl
 
 class CorpusHandler:
@@ -113,7 +112,7 @@ class CorpusHandler:
                 print("Warning: No columns containing 'frequency' or 'freq' found in the corpus.")
                 print("Available columns:", available_columns)
                 print("Frequency-based measures will not be available.")
-            self.frequency_columns = frequency_columns[:2]  # Use the first two frequency columns found
+            self.frequency_columns = frequency_columns[:2] 
         else:
             if 'freq_per_m' in available_columns and 'zipf' in available_columns:
                 self.frequency_columns = ['freq_per_m', 'zipf']
