@@ -2,14 +2,14 @@
 
 ## Overview
 
-Jiwar is an open-source Python tool for analyzing orthographic, phonological, and phonographic neighbors across 40+ languages. It offers a user-friendly command-line interface for calculating various neighborhood measures.
+Jiwar is an open-source Python tool for analyzing orthographic, phonological, and phonographic neighbors across 40+ languages. 
 
 ## Features
 
 - Supports 40+ languages
-- Calculates orthographic, phonological, and phonographic measures
+- Calculates orthographic, phonological, and phonographic neighborhood measures
 - User-friendly command-line interface
-- Supports custom corpus files
+- Includes built-in and custom corpus files
 
 ## Quick Start
 
@@ -29,29 +29,31 @@ Jiwar is an open-source Python tool for analyzing orthographic, phonological, an
    python jiwar.py
    ```
 
-## Supported Measures
-
-| Measure | Description |
-|---------|-------------|
-| N (Neighborhood Size) | Number of words that differ by one letter/phoneme |
-| Density | Number of words within a Levenshtein distance of 1 |
-| OLD20/PLD20/PGLD20 | Average Levenshtein distance of the 20 closest neighbors |
-| C (Clustering Coefficient) | Measures how interconnected a word's neighbors are |
-| Neighborhood Frequency | Statistics about the frequencies of neighboring words |
-
-## Language Support
-
-- Jiwar supports [127 languages](https://github.com/AlaaAlzahrani/Jiwar/blob/master/docs/LANGUAGES.md). 
-- Jiwar includes built-in corpora for 40 languages. 
-- For languages without a built-in corpus, you'll need to provide a [custom corpus](https://github.com/AlaaAlzahrani/Jiwar/blob/master/docs/CUSTOM_CORPUS.md).
-
-
 ## Usage
 
 1. Prepare your input file (CSV or Excel) with a 'word' column.
 2. Run `python jiwar.py` and follow the prompts.
 3. Select your desired language and measures.
 4. Jiwar will process your input and save the results.
+
+
+## Supported Measures
+
+| Measure | Description |
+|---------|-------------|
+| N (Neighborhood Size) | Number of words that differ by one letter/phoneme via substitution |
+| Density | Number of words that that differ by one letter/phoneme via substitution, addition, or deletion |
+| OLD20/PLD20/PGLD20 | Average Levenshtein distance of the 20 closest neighbors |
+| C (Clustering Coefficient) | Measures how interconnected a word's neighbors are |
+| Neighborhood Frequency | Statistics about the frequencies of neighboring words |
+
+## Supported Language 
+
+- Jiwar supports 40 languages with built-in corpus, and around 90 language varieties with custom corpus.
+- For languages without a built-in corpus, you'll need to provide a [custom corpus](https://github.com/AlaaAlzahrani/Jiwar/blob/master/docs/CUSTOM_CORPUS.md) to use Jiwar.
+
+
+
 
 ## Documentation
 
