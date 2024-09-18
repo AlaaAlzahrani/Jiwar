@@ -1,8 +1,21 @@
-# Jiwar: Word Neighborhood Calculator for 40+ Languages
+<h1 align="center">Jiwar: A neighborhood calculator for 40+ languages</h1>
+
+<p align="center">
+  <a href="https://www.gnu.org/licenses/gpl-3.0">
+    <img src="https://img.shields.io/badge/License-GPL%20v3-blue.svg" alt="License: GPL v3">
+  </a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252" alt="Google Colab">
+  <img src="https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue" alt="Python">
+</p>
+
+
 
 ## Overview
 
-Jiwar is an open-source Python tool for analyzing orthographic, phonological, and phonographic neighbors across 40+ languages. 
+Jiwar is an open-source Python tool for generating orthographic, phonological, and phonographic measures across 40+ languages. 
 
 ## Features
 
@@ -10,6 +23,15 @@ Jiwar is an open-source Python tool for analyzing orthographic, phonological, an
 - Calculates orthographic, phonological, and phonographic neighborhood measures
 - User-friendly command-line interface
 - Includes built-in and custom corpus files
+
+
+##  Get Started  
+
+![alt text](https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)
+
+   - An interactive Google colab notebook is provided to help users start using Jiwar without installing it on their device. 
+   - Click [HERE](https://colab.research.google.com/drive/1f_n7uuimT8MReaOW4U4LP8dAUVtY2hAq) to use the notebook.
+
 
 ## Quick Start
 
