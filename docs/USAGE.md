@@ -47,4 +47,28 @@ This guide provides detailed instructions on how to use Jiwar for various scenar
 - To exit the program at any time, type `exit` at any prompt.
 - For languages without built-in IPA support, consider adding an 'IPA' column to your input file for phonological and phonographic measures.
 
+
+## Note for Google Colab Users
+
+When using Jiwar in Google Colab, you might encounter package version conflicts. If this happens, try the following steps:
+
+1. Install pip-ignore-conflicts:
+   ```
+   !pip install pip-ignore-conflicts
+   ```
+
+2. Install Jiwar requirements ignoring conflicts:
+   ```
+   !pip install --ignore-conflicts -r requirements.txt
+   ```
+
+3. If issues persist, manually install compatible versions:
+   ```
+   !pip install pandas==2.0.3 numpy==1.23.5 pyarrow==14.0.1
+   ```
+
+>Note: Remember to restart your runtime after installing packages.
+
+## More information
+
 For more information on specific measures, refer to the [MEASURES.md file](https://github.com/AlaaAlzahrani/Jiwar/blob/master/docs/MEASURES.md). For language support details, see the [LANGUAGES.md file](https://github.com/AlaaAlzahrani/Jiwar/blob/master/docs/LANGUAGES.md).
