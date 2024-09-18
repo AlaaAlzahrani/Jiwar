@@ -170,18 +170,23 @@ def main():
                 print("Please ensure your corpus meets the minimum requirements and try again, or type 'exit' to quit.")
 
     while True:
-        input_file = input("Enter the name of your input file (e.g., input_file.csv): ")
+        input_file = input("Enter the name of your input file (e.g., en_words.csv): ")
         try:
             file_reader = FileReader()
             input_data = file_reader.read_input_file(input_file)
             print(f"Input data columns: {input_data.columns}")
             break
+        except FileNotFoundError:
+            print(f"File not found: {input_file}")
+            print("Make sure the file is in the 'data/input' directory.")
+            print("You can use just the filename if it's in the correct directory.")
         except Exception as e:
             print(f"Error reading input file: {e}")
-            print("Please try again or type 'exit' to quit.")
-            if input_file.lower() == 'exit':
-                print("Exiting Jiwar.")
-                return
+        print("Please try again or type 'exit' to quit.")
+        if input_file.lower() == 'exit':
+            print("Exiting Jiwar.")
+            return
+    
 
     while True:
         measure_input = input("Enter the type of measures to calculate (all, orth, phon, pg, or a combination separated by commas): ").lower()
