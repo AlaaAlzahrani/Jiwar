@@ -32,10 +32,3 @@ Features
    usage
    measures/index
    languages/index
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
