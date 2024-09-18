@@ -35,6 +35,7 @@ Jiwar is an open-source Python tool for analyzing orthographic, phonological, an
 
 3. Install dependencies:
    ```
+   pip install --upgrade pip
    pip install -r requirements.txt
    ```
 
