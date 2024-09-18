@@ -18,14 +18,8 @@ class FileReader:
 
     def read_input_file(self, filename):
         file_path = os.path.join(self.input_dir, filename)
-        print(f"Attempting to read file: {file_path}")
-        print(f"Current working directory: {os.getcwd()}")
-        print(f"Input directory: {self.input_dir}")
-        print(f"Does input directory exist? {os.path.exists(self.input_dir)}")
-        print(f"Contents of input directory: {os.listdir(self.input_dir) if os.path.exists(self.input_dir) else 'Directory does not exist'}")
-        
         if not os.path.exists(file_path):
-            raise FileNotFoundError(f"File not found: {filename}\nFull path: {file_path}\nContents of input directory: {os.listdir(self.input_dir) if os.path.exists(self.input_dir) else 'Directory does not exist'}")
+            raise FileNotFoundError(f"File not found: {filename}\nPlease make sure the file is in the 'data/input' directory.")
         
         raw_data = self._read_file_as_text(file_path)
         cleaned_data = self._clean_white_spaces(raw_data)

@@ -120,6 +120,11 @@ def process_chunk(args):
 
 def main():
 
+    print("Welcome to Jiwar!")
+    print("Please ensure your input files are located in the 'data/input' directory.")
+    print("You can use just the filename when prompted for the input file.")
+    print()
+
     corpus_handler = CorpusHandler()
 
     while True:
@@ -176,13 +181,15 @@ def main():
             input_data = file_reader.read_input_file(input_file)
             print(f"Input data columns: {input_data.columns}")
             break
-        except FileNotFoundError:
-            print(f"File not found: {input_file}")
+        except FileNotFoundError as e:
+            print(f"Error: {e}")
             print("Make sure the file is in the 'data/input' directory.")
             print("You can use just the filename if it's in the correct directory.")
+            print("Please try again or type 'exit' to quit.")
         except Exception as e:
             print(f"Error reading input file: {e}")
-        print("Please try again or type 'exit' to quit.")
+            print("Please try again or type 'exit' to quit.")
+        
         if input_file.lower() == 'exit':
             print("Exiting Jiwar.")
             return
