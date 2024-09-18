@@ -32,3 +32,4 @@ Features
    usage
    measures/index
    languages/index
+   advanced/index

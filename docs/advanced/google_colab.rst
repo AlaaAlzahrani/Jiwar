@@ -94,4 +94,4 @@ If you encounter issues while using Jiwar in Google Colab:
 2. Check that your input files are in the correct location and format.
 3. If you're using a custom corpus, make sure it meets the required format specifications.
 4. Restart the runtime if you've made significant changes to the environment.
-5. If problems persist, consult the Jiwar documentation or reach out to the community for support.
+5. If problems persist, consult the Jiwar documentation or reach out to the author for support.
