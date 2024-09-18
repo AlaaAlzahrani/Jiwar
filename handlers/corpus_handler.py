@@ -12,7 +12,8 @@ class CorpusHandler:
         self.corpus_data = None
         self.current_language = None
         self.frequency_columns = None
-
+        self.file_reader = FileReader
+        
     def has_built_in_corpus(self, language_code):
         built_in_languages = [
             "af", "ar", "bg", "br", "bs", "ca", "cs", "de", "el",
