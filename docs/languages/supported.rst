@@ -10,92 +10,176 @@ These languages have pre-loaded corpora and can be used immediately with Jiwar:
 
 .. list-table::
    :header-rows: 1
-   :widths: 20 80
+   :widths: 5 10 20 30
 
-   * - Code
+   * - N
+     - Code
      - Language
-   * - af
+     - Supported Writing Script
+   * - 1
+     - af
      - Afrikaans
-   * - ar
+     - Latin
+   * - 2
+     - ar
      - Arabic
-   * - bg
+     - Fully diacritized Arabic
+   * - 3
+     - bg
      - Bulgarian
-   * - bs
+     - Cyrillic
+   * - 4
+     - bs
      - Bosnian
-   * - ca
+     - Cyrillic, Latin
+   * - 5
+     - ca
      - Catalan
-   * - cs
+     - Latin
+   * - 6
+     - cs
      - Czech
-   * - de
+     - Latin
+   * - 7
+     - de
      - German
-   * - el
+     - Latin
+   * - 8
+     - el
      - Greek
-   * - en-gb
+     - Greek
+   * - 9
+     - en-gb
      - English (GB)
-   * - en-us
+     - Latin
+   * - 10
+     - en-us
      - English (US)
-   * - eo
+     - Latin
+   * - 11
+     - eo
      - Esperanto
-   * - es
+     - Latin
+   * - 12
+     - es
      - Spanish
-   * - et
+     - Latin
+   * - 13
+     - et
      - Estonian
-   * - eu
+     - Latin
+   * - 14
+     - eu
      - Basque
-   * - fa
+     - Latin
+   * - 15
+     - fa
      - Persian
-   * - fi
+     - Perso-Arabic
+   * - 16
+     - fi
      - Finnish
-   * - fr
+     - Latin
+   * - 17
+     - fr
      - French
-   * - hr
+     - Latin
+   * - 18
+     - hr
      - Croatian
-   * - hu
+     - Latin
+   * - 19
+     - hu
      - Hungarian
-   * - hy
+     - Latin
+   * - 20
+     - hy
      - Armenian
-   * - id
+     - Armenian
+   * - 21
+     - id
      - Indonesian
-   * - it
+     - Latin
+   * - 22
+     - it
      - Italian
-   * - kk
+     - Latin
+   * - 23
+     - kk
      - Kazakh
-   * - ko
+     - Cyrillic
+   * - 24
+     - ko
      - Korean
-   * - lt
+     - Hangul
+   * - 25
+     - lt
      - Lithuanian
-   * - lv
+     - Latin
+   * - 26
+     - lv
      - Latvian
-   * - mk
+     - Latin
+   * - 27
+     - mk
      - Macedonian
-   * - ms
+     - Cyrillic
+   * - 28
+     - ms
      - Malay
-   * - nl
+     - Latin
+   * - 29
+     - nl
      - Dutch
-   * - no
+     - Latin
+   * - 30
+     - no
      - Norwegian
-   * - pl
+     - Latin
+   * - 31
+     - pl
      - Polish
-   * - pt
+     - Latin
+   * - 32
+     - pt
      - Portuguese
-   * - ro
+     - Latin
+   * - 33
+     - ro
      - Romanian
-   * - ru
+     - Latin
+   * - 34
+     - ru
      - Russian
-   * - sk
+     - Cyrillic
+   * - 35
+     - sk
      - Slovak
-   * - sq
+     - Latin
+   * - 36
+     - sq
      - Albanian
-   * - sr
+     - Latin
+   * - 37
+     - sr
      - Serbian
-   * - sv
+     - Cyrillic
+   * - 38
+     - sv
      - Swedish
-   * - tr
+     - Latin
+   * - 39
+     - tr
      - Turkish
-   * - uk
+     - Latin
+   * - 40
+     - uk
      - Ukrainian
-   * - ur
+     - Cyrillic
+   * - 41
+     - ur
      - Urdu
+     - Perso-Arabic
 
 Languages Requiring Custom Corpora
 ----------------------------------
