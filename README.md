@@ -118,7 +118,7 @@ If you use Jiwar in your research, please cite:
 
 ```bibtex
 @preprint{Alzahrani:2024:jiwar,
-    title = "{Jiwar: A Database and Calculator for Orthographic and Phonological Neighborhood Measures for 40 Languages}",
+    title = "{Jiwar: A database and calculator for word neighborhood measures in 40 Languages}",
     author = {Alaa Alzahrani},
     year = "2024",
     note = "Preprint"
