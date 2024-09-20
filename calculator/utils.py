@@ -17,8 +17,9 @@ def count_letters(word):
     return len(word)
 
 def count_phonemes(ipa):
-    """Count the number of phonemes in an IPA transcription, ignoring None values."""
-    if ipa is None:
+    """Count the number of phonemes in an IPA transcription."""
+    if pd.isna(ipa):
         return 0
-    cleaned_ipa = re.sub(r'[ˈˌ.:]', '', ipa)
+    ipa = str(ipa)
+    cleaned_ipa = re.sub(r'[ˈˌ.:ː]', '', ipa)
     return len(cleaned_ipa)
