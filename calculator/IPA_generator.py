@@ -69,8 +69,8 @@ def generate_ipa(words, language, preserve_punctuation=False, with_stress=False,
         return pl.Series(ipa_transcriptions)
     
     except RuntimeError as e:
-        friendly_message = f"""
-        Oops! It looks like eSpeak is not installed on your system. Don't worry, we can fix this!
+        error_message = f"""
+        It looks like eSpeak is not installed on your system. Don't worry, we can fix this!
 
         To use the IPA generation feature, you'll need to install eSpeak. Here's how:
 
@@ -85,5 +85,5 @@ def generate_ipa(words, language, preserve_punctuation=False, with_stress=False,
 
         For now, IPA generation will be skipped, but you can still use other features of Jiwar.
         """
-        warnings.warn(friendly_message)
+        warnings.warn(error_message)
         return pl.Series([''] * len(words))
