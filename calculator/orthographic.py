@@ -9,6 +9,8 @@ from tqdm import tqdm
 @lru_cache(maxsize=10000)
 def cached_distance(word1, word2):
     return distance(word1, word2)
+
+
 def is_substitution(word1, word2):
     if len(word1) != len(word2):
         return False
@@ -29,17 +31,40 @@ def process_words(words, corpus_series, task):
         elif task == 'old20':
             distances = sorted([cached_distance(word, x) for x in corpus_list if x != word])
             results.append(float(np.mean(distances[:20])) if len(distances) >= 20 else float(np.nan))
+            
         elif task == 'clustering':
-            neighbors = [x for x in corpus_list if cached_distance(word, x) == 1]
-            if len(neighbors) < 2:
-                results.append(0.0)
+            neighbors_1hop = [x for x in corpus_list if cached_distance(word, x) == 1]
+            
+            if len(neighbors_1hop) < 2:
+                C = 0.0
             else:
-                connections = sum(1 for i, n1 in enumerate(neighbors)
-                                  for n2 in neighbors[i+1:]
-                                  if cached_distance(n1, n2) == 1)
-                max_connections = (len(neighbors) * (len(neighbors) - 1)) / 2
-                results.append(connections / max_connections if max_connections > 0 else 0.0)
+                connections_1hop = sum(1 for i, n1 in enumerate(neighbors_1hop)
+                                    for n2 in neighbors_1hop[i+1:]
+                                    if cached_distance(n1, n2) == 1)
+                max_connections_1hop = (len(neighbors_1hop) * (len(neighbors_1hop) - 1)) / 2
+                C = connections_1hop / max_connections_1hop if max_connections_1hop > 0 else 0.0
 
+            neighbors_2hop = []
+            for neighbor in neighbors_1hop:
+                second_neighbors = [x for x in corpus_list 
+                                if cached_distance(neighbor, x) == 1 
+                                and x != word 
+                                and x not in neighbors_1hop]
+                neighbors_2hop.extend(second_neighbors)
+            
+            neighbors_2hop = list(set(neighbors_2hop))
+            
+            all_neighbors = neighbors_1hop + neighbors_2hop
+            if len(all_neighbors) < 2:
+                two_hop_density = 0.0
+            else:
+                total_connections = sum(1 for i, n1 in enumerate(all_neighbors)
+                                    for n2 in all_neighbors[i+1:]
+                                    if cached_distance(n1, n2) == 1)
+                max_possible_connections = (len(all_neighbors) * (len(all_neighbors) - 1)) / 2
+                two_hop_density = total_connections / max_possible_connections if max_possible_connections > 0 else 0.0
+            
+            results.append((float(C), float(two_hop_density)))
     return results
 
 def calculate_N(words, corpus):
@@ -97,7 +122,10 @@ def calculate_neighborhood_frequency(words, corpus, frequencies):
 
     return mean_series, std_series, mean_higher_series, mean_lower_series
 
-def calculate_clustering_coefficient(words, corpus):
+
+def calculate_network_metrics(words, corpus):
     corpus_series = pl.Series(corpus)
     results = process_words(words, corpus_series, 'clustering')
-    return pl.Series(results)
+    C_values = pl.Series([result[0] for result in results])
+    two_hop_values = pl.Series([result[1] for result in results])
+    return C_values, two_hop_values

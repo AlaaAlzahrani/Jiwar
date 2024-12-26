@@ -1,6 +1,5 @@
 import polars as pl
 from tqdm import tqdm
-import os
 from pathlib import Path
 from multiprocessing import Pool, cpu_count
 from calculator import utils
@@ -17,13 +16,13 @@ def process_chunk(args):
     if include_ipa:
         results['IPA'] = chunk['IPA']
 
-    # generate word length info
+    # Generate word length info
     if 'orth' in selected_measures or 'all' in selected_measures:
         results['num_letters'] = chunk['word'].map_elements(utils.count_letters, return_dtype=pl.UInt32)
     if include_ipa and ('phon' in selected_measures or 'all' in selected_measures):
         results['num_phonemes'] = chunk['IPA'].map_elements(utils.count_phonemes, return_dtype=pl.UInt32)
 
-    # generate main neighborhood measures
+    # Generate main neighborhood measures
     for measure in selected_measures:
         if measure == 'orth_N':
             N, neighbors = orthographic.calculate_N(chunk['word'], corpus_data['word'])
@@ -36,7 +35,11 @@ def process_chunk(args):
         elif measure == 'OLD20':
             results['OLD20'] = orthographic.calculate_old20(chunk['word'], corpus_data['word'])
         elif measure == 'orth_C':
-            results['orth_C'] = orthographic.calculate_clustering_coefficient(chunk['word'], corpus_data['word'])
+            C, two_hop = orthographic.calculate_network_metrics(chunk['word'], corpus_data['word'])
+            results['orth_C'] = C
+            results['orth_2hop_density'] = two_hop
+
+
         elif measure == 'phon_N' and include_ipa:
             N, neighbors = phonological.calculate_N(chunk['IPA'], corpus_data['IPA'])
             results['phon_N'] = N
@@ -48,7 +51,11 @@ def process_chunk(args):
         elif measure == 'PLD20' and include_ipa:
             results['PLD20'] = phonological.calculate_pld20(chunk['IPA'], corpus_data['IPA'])
         elif measure == 'phon_C' and include_ipa:
-            results['phon_C'] = phonological.calculate_clustering_coefficient(chunk['IPA'], corpus_data['IPA'])
+            C, two_hop = phonological.calculate_network_metrics(chunk['IPA'], corpus_data['IPA'])
+            results['phon_C'] = C
+            results['phon_2hop_density'] = two_hop
+
+            
         elif measure == 'pg_N' and include_ipa:
             N, neighbors = phonographic.calculate_N(chunk['word'], chunk['IPA'], corpus_data['word'], corpus_data['IPA'])
             results['pg_N'] = N
@@ -60,10 +67,11 @@ def process_chunk(args):
         elif measure == 'PGLD20' and include_ipa:
             results['PGLD20'] = phonographic.calculate_pgld20(chunk['word'], chunk['IPA'], corpus_data['word'], corpus_data['IPA'])
         elif measure == 'pg_C' and include_ipa:
-            results['pg_C'] = phonographic.calculate_clustering_coefficient(chunk['word'], chunk['IPA'], corpus_data['word'], corpus_data['IPA'])
+            C, two_hop = phonographic.calculate_network_metrics(chunk['word'], chunk['IPA'], corpus_data['word'], corpus_data['IPA'])
+            results['pg_C'] = C
+            results['pg_2hop_density'] = two_hop
 
-
-    # generate frequency info
+    # Generate frequency info
     for freq_col in frequency_cols:
         if 'orth_nbr_freq' in selected_measures:
             mean, std, mean_higher, mean_lower = orthographic.calculate_neighborhood_frequency(chunk['word'], corpus_data['word'], corpus_data[freq_col])
@@ -121,7 +129,6 @@ def process_chunk(args):
 
 
 def main():
-
     print("Welcome to Jiwar!")
     print()
 
@@ -150,32 +157,12 @@ def main():
         print("\nPlease prepare your custom corpus now if you haven't already.")
         input("Press Enter when you're ready to proceed...")
 
-    if not use_built_in:
-        while True:
-            corpus_filename = input("Enter the filename or full path of your custom corpus, or type 'exit' to quit: ")
-            
-            if corpus_filename.lower() == 'exit':
-                print("Exiting Jiwar.")
-                return  
-            
-            try:
-                corpus_data = corpus_handler.load_corpus(language_input, use_user_corpus=True, corpus_filename=corpus_filename)
-                print("Corpus loaded successfully.")
-                print(f"Corpus info: {corpus_handler.corpus_info()}")
-                print(f"Frequency columns found: {corpus_handler.get_frequency_columns()}")
-                break
-            except FileNotFoundError as e:
-                print(e)
-                print("Please try again with a valid filename or full path, or type 'exit' to quit.")
-            except ValueError as e:
-                print(f"Error loading corpus: {e}")
-                print("Please ensure your corpus meets the minimum requirements and try again, or type 'exit' to quit.")
-
-
     try:
         if use_built_in:
             corpus_data = corpus_handler.load_corpus(language_input)
             print("Built-in corpus loaded successfully.")
+            print(f"Corpus info: {corpus_handler.corpus_info()}")
+            print(f"Frequency columns found: {corpus_handler.get_frequency_columns()}")
         else:
             while True:
                 corpus_filename = input("Enter the filename or full path of your custom corpus, or type 'exit' to quit: ")
@@ -185,42 +172,43 @@ def main():
                 try:
                     corpus_data = corpus_handler.load_corpus(language_input, use_user_corpus=True, corpus_filename=corpus_filename)
                     print("Custom corpus loaded successfully.")
+                    print(f"Corpus info: {corpus_handler.corpus_info()}")
+                    print(f"Frequency columns found: {corpus_handler.get_frequency_columns()}")
                     break
                 except FileNotFoundError as e:
                     print(e)
                     print("Please try again with a valid filename or full path, or type 'exit' to quit.")
+                except ValueError as e:
+                    print(f"Error loading corpus: {e}")
+                    print("Please ensure your corpus meets the minimum requirements and try again, or type 'exit' to quit.")
     except Exception as e:
         print(f"Error loading corpus: {e}")
         return
 
     while True:
-            input_file = input("Enter the path to your input file:\n"
-                            "- Enter just the filename to look in the current directory or Jiwar's input directory\n"
-                            "- Or enter the full path to the file\n"
-                            "Your input: ")
-            if input_file.lower() == 'exit':
-                print("Exiting Jiwar.")
-                return
-            try:
-                file_reader = FileReader()
-                input_data = file_reader.read_input_file(input_file)
-                print(f"Input data columns: {input_data.columns}")
-                break
-            except FileNotFoundError as e:
-                print(f"Error: {e}")
-                print("Jiwar looked for the file in the following locations:")
-                print(f"1. Current working directory: {Path.cwd()}")
-                print(f"2. Jiwar's input directory: {file_reader.input_dir}")
-                print("Please make sure you've entered the correct filename or path.")
-                print("You can type 'exit' to quit the program.")
-            except Exception as e:
-                print(f"Error reading input file: {e}")
-                print("Please try again or type 'exit' to quit.")
+        input_file = input("Enter the path to your input file:\n"
+                        "- Enter just the filename to look in the current directory or Jiwar's input directory\n"
+                        "- Or enter the full path to the file\n"
+                        "Your input: ")
+        if input_file.lower() == 'exit':
+            print("Exiting Jiwar.")
+            return
+        try:
+            file_reader = FileReader()
+            input_data = file_reader.read_input_file(input_file)
+            print(f"Input data columns: {input_data.columns}")
+            break
+        except FileNotFoundError as e:
+            print(f"Error: {e}")
+            print("Jiwar looked for the file in the following locations:")
+            print(f"1. Current working directory: {Path.cwd()}")
+            print(f"2. Jiwar's input directory: {file_reader.input_dir}")
+            print("Please make sure you've entered the correct filename or path.")
+            print("You can type 'exit' to quit the program.")
+        except Exception as e:
+            print(f"Error reading input file: {e}")
+            print("Please try again or type 'exit' to quit.")
 
-            if input_file.lower() == 'exit':
-                print("Exiting Jiwar.")
-                return
-            
     while True:
         measure_input = input("Enter the type of measures to calculate (all, orth, phon, pg, or a combination separated by commas): ").lower()
         measures = [m.strip() for m in measure_input.split(',')]
@@ -232,12 +220,11 @@ def main():
 
     selected_measures = []
     if 'all' in measures or 'orth' in measures:
-        selected_measures.extend(['orth', 'orth_N', 'orth_density', 'OLD20', 'orth_C', 'orth_nbr_freq'])
+        selected_measures.extend(['orth', 'orth_N', 'orth_density', 'OLD20', 'orth_C', 'orh_2hop_density', 'orth_nbr_freq'])
     if 'all' in measures or 'phon' in measures:
-        selected_measures.extend(['phon', 'phon_N', 'phon_density', 'PLD20', 'phon_C', 'phon_nbr_freq'])
+        selected_measures.extend(['phon', 'phon_N', 'phon_density', 'PLD20', 'phon_C', 'phon_2hop_density', 'phon_nbr_freq'])
     if 'all' in measures or 'pg' in measures:
-        selected_measures.extend(['pg', 'pg_N', 'pg_density', 'PGLD20', 'pg_C', 'pg_nbr_freq'])
-
+        selected_measures.extend(['pg', 'pg_N', 'pg_density', 'PGLD20', 'pg_C', 'pg_2hop_density', 'pg_nbr_freq'])
 
     include_ipa = 'all' in measures or 'phon' in measures or 'pg' in measures
     if include_ipa and 'IPA' in input_data.columns:
@@ -262,7 +249,6 @@ def main():
         ))
 
     final_results = pl.concat(results)
-
 
     output_handler = OutputHandler()
     output_file = output_handler.save_results(final_results, language_code)

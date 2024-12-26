@@ -1,975 +1,654 @@
-word
-ability  
-absence  
-academy  
-account  
-action  
-activity  
-actor  
-addition  
-address  
-administration  
-advantage  
-advertisement  
-advice  
-affair  
-agency  
-agreement  
-airplane  
-airport  
-alarm  
-alcohol  
-ambition  
-analysis  
-animal  
-announcement  
-answer  
-anxiety  
-apartment  
-apology  
-appearance  
-application  
-appointment  
-approval  
-argument  
-arrangement  
-arrival  
-article  
-artist  
-aspect  
-assignment  
-assistant  
-association  
-assumption  
-atmosphere  
-attitude  
-audience  
-author  
-average  
-background  
-balance  
-balloon  
-banker  
-barrier  
-basement  
-basis  
-basket  
-bathroom  
-battery  
-beauty  
-bedroom  
-behavior  
-benefit  
-bicycle  
-billion  
-birthday  
-blanket  
-board  
-boundary  
-brain  
-bread  
-breakfast  
-breath  
-brother  
-building  
-business  
-butter  
-button  
-cabinet  
-camera  
-campaign  
-candidate  
-capital  
-career  
-carpet  
-carrier  
-category  
-celebration  
-cellphone  
-center  
-ceremony  
-challenge  
-chance  
-change  
-channel  
-chapter  
-character  
-charity  
-cheese  
-chemical  
-childhood  
-choice  
-cigarette  
-citizen  
-civilization  
-clarity  
-classroom  
-climate  
-closet  
-clothes  
-coffee  
-collection  
-college  
-combination  
-comfort  
-command  
-comment  
-commitment  
-committee  
-community  
-company  
-comparison  
-competition  
-complaint  
-computer  
-concept  
-concern  
-concert  
-condition  
-conference  
-confidence  
-conflict  
-connection  
-consequence  
-consideration  
-construction  
-contract  
-contrast  
-conversation  
-cooperation  
-corner  
-corporation  
-correction  
-courage  
-course  
-cousin  
-coverage  
-creation  
-creature  
-credit  
-criticism  
-culture  
-customer  
-damage  
-danger  
-darkness  
-database  
-daughter  
-deadline  
-dealer  
-decision  
-defeat  
-defense  
-degree  
-delivery  
-demand  
-department  
-departure  
-dependence  
-description  
-designer  
-desire  
-desk  
-detail  
-development  
-device  
-diagnosis  
-dialogue  
-dictionary  
-difference  
-difficulty  
-dinner  
-direction  
-director  
-disaster  
-discovery  
-discussion  
-disease  
-display  
-distance  
-distribution  
-doctor  
-document  
-doorway  
-drawing  
-driver  
-duration  
-duty  
-eagle  
-economy  
-education  
-effort  
-election  
-element  
-elevator  
-emotion  
-employee  
-employer  
-employment  
-encounter  
-energy  
-engineer  
-entertainment  
-enthusiasm  
-entry  
-environment  
-episode  
-equipment  
-error  
-escape  
-essay  
-establishment  
-estate  
-estimate  
-event  
-evidence  
-examination  
-example  
-exchange  
-exercise  
-exhibition  
-existence  
-expansion  
-expectation  
-expense  
-experience  
-experiment  
-expert  
-explanation  
-expression  
-extension  
-extent  
-external  
-facility  
-factor  
-failure  
-family  
-farmer  
-fashion  
-father  
-feedback  
-festival  
-figure  
-finance  
-finding  
-finger  
-fireplace  
-flight  
-flower  
-focus  
-food  
-football  
-forecast  
-forehead  
-forest  
-formation  
-foundation  
-freedom  
-friendship  
-function  
-furniture  
-gallery  
-garden  
-gate  
-generation  
-gift  
-girlfriend  
-goal  
-government  
-graduate  
-grandfather  
-grandmother  
-grocery  
-growth  
-guest  
-guidance  
-habit  
-haircut  
-hallway  
-happiness  
-hardware  
-hatred  
-health  
-hearing  
-heart  
-height  
-highway  
-history  
-holiday  
-homework  
-honey  
-hospital  
-hostage  
-household  
-human  
-hunger  
-husband  
-idea  
-identity  
-impact  
-implementation  
-importance  
-impression  
-incident  
-income  
-independence  
-individual  
-industry  
-influence  
-information  
-initiative  
-injury  
-innovation  
-insight  
-inspection  
-instructor  
-instrument  
-insurance  
-interaction  
-interest  
-internal  
-internet  
-introduction  
-investment  
-invitation  
-island  
-jacket  
-judgment  
-juice  
-kitchen  
-knowledge  
-landscape  
-language  
-laughter  
-lawyer  
-leader  
-learning  
-lecture  
-legislation  
-library  
-limit  
-literature  
-location  
-luck  
-lunch  
-machine  
-magazine  
-maintenance  
-manager  
-manner  
-manufacturer  
-market  
-marriage  
-material  
-meaning  
-measurement  
-medicine  
-memory  
-mention  
-message  
-method  
-midnight  
-migration  
-military  
-miner  
-ministry  
-mistake  
-mixture  
-mobile  
-moment  
-monitor  
-month  
-mood  
-morning  
-motion  
-mountain  
-movement  
-movie  
-muscle  
-museum  
-music  
-nation  
-nature  
-negotiation  
-neighbor  
-nephew  
-network  
-newspaper  
-nightmare  
-noise  
-notebook  
-notice  
-novel  
-nurse  
-object  
-observation  
-occasion  
-offense  
-offering  
-office  
-operation  
-opinion  
-opportunity  
-opponent  
-option  
-orange  
-order  
-organization  
-outcome  
-outlet  
-owner  
-package  
-painting  
-panel  
-paper  
-paragraph  
-parking  
-partnership  
-passage  
-passenger  
-passion  
-patience  
-pattern  
-payment  
-peace  
-penalty  
-percentage  
-perception  
-performance  
-permission  
-personality  
-perspective  
-phone  
-photograph  
-piano  
-picture  
-piece  
-pillow  
-place  
-planning  
-plant  
-platform  
-player  
-pleasure  
-plenty  
-poet  
-police  
-policy  
-pollution  
-population  
-position  
-possibility  
-postcard  
-potential  
-practice  
-preference  
-preparation  
-presence  
-presentation  
-president  
-pressure  
-price  
-priority  
-prison  
-privacy  
-problem  
-procedure  
-process  
-product  
-profession  
-professor  
-profile  
-progress  
-project  
-promise  
-promotion  
-proof  
-proposal  
-protection  
-protein  
-provision  
-psychology  
-publication  
-punishment  
-purpose  
-quantity  
-quarter  
-question  
-reaction  
-reality  
-reason  
-reception  
-recommendation  
-record  
-recovery  
-reduction  
-reference  
-reflection  
-refugee  
-region  
-regret  
-relationship  
-relief  
-remark  
-report  
-request  
-requirement  
-research  
-resource  
-response  
-responsibility  
-restaurant  
-result  
-revenue  
-revolution  
-reward  
-rhythm  
-risk  
-river  
-roadway  
-robot  
-role  
-roommate  
-routine  
-safety  
-salary  
-sale  
-sample  
-sanction  
-satisfaction  
-savings  
-schedule  
-school  
-science  
-screen  
-search  
-season  
-secretary  
-section  
-security  
-selection  
-sense  
-sentence  
-sequence  
-series  
-service  
-session  
-setting  
-shadow  
-shareholder  
-shelter  
-shipment  
-shopping  
-shortage  
-shoulder  
-signature  
-silence  
-singer  
-situation  
-skill  
-society  
-software  
-solution  
-somebody  
-speech  
-speed  
-spending  
-spirit  
-statement  
-statistics  
-status  
-storage  
-story  
-strength  
-struggle  
-student  
-studio  
-style  
-subject  
-substance  
-success  
-suggestion  
-supermarket  
-support  
-surprise  
-surgery  
-survival  
-sympathy  
-system  
-table  
-talent  
-target  
-teacher  
-technology  
-temperature  
-temporary  
-tension  
-theory  
-therapy  
-ticket  
-tobacco  
-tolerance  
-tomorrow  
-tourist  
-tragedy  
-training  
-transaction  
-translation  
-transportation  
-travel  
-treatment  
-tunnel  
-uncle  
-unemployment  
-uniform  
-universe  
-university  
-vacation  
-vehicle  
-version  
-victim  
-victory  
-village  
-violation  
-visitor  
-volunteer  
-voting  
-wage  
-warning  
-waste  
-weakness  
-wealth  
-weather  
-wedding  
-weekend  
-weight  
-welcome  
-welfare  
-whisper  
-window  
-winner  
-wisdom  
-worker  
-workplace  
-writer  
-the
-and
-for
-you
-his
-not
-but
-she
-can
-who
-get
-her
-all
-one
-make
-out
-now
-see
-how
-its
-our
-man
-was
-are
-had
-day
-way
-use
-two
-may
-own
-old
-let
-big
-few
-ask
-end
-run
-set
-try
-pay
-cut
-yet
-add
-job
-far
-top
-bad
-win
-lot
-buy
-low
-act
-key
-war
-age
-air
-car
-sit
-lay
-hit
-fix
-fit
-box
-law
-bed
-tie
-boy
-six
-gas
-egg
-tap
-mix
-dot
-bat
-map
-run
-bit
-fan
-pot
-cap
-dry
-wet
-cat
-dog
-hat
-back
-book
-city
-door
-fast
-hope
-kind
-life
-more
-name
-open
-play
-read
-stay
-turn
-work
-write
-apple
-bring
-drive
-the  
-be  
-and  
-of  
-a  
-in  
-to  
-have  
-it  
-I  
-that  
-for  
-you  
-he  
-with  
-on  
-do  
-say  
-this  
-they  
-at  
-but  
-we  
-his  
-from  
-that  
-not  
-by  
-she  
-or  
-as  
-what  
-go  
-their  
-can  
-who  
-get  
-if  
-would  
-her  
-all  
-my  
-make  
-about  
-know  
-will  
-as  
-up  
-one  
-time  
-there  
-year  
-so  
-think  
-when  
-which  
-them  
-some  
-me  
-people  
-take  
-out  
-into  
-just  
-see  
-him  
-your  
-come  
-could  
-now  
-than  
-like  
-other  
-how  
-then  
-its  
-our  
-two  
-more  
-these  
-want  
-way  
-look  
-first  
-also  
-new  
-because  
-day  
-more  
-use  
-no  
-man  
-find  
-here  
-thing  
-give  
-many  
-well  
-only  
-those  
-tell  
-very  
-even  
-back  
-any  
-good  
-woman  
-through  
-us  
-life  
-child  
-there  
-work  
-down  
-may  
-after  
-should  
-call  
-world  
-over  
-school  
-still  
-try  
-last  
-ask  
-need  
-too  
-feel  
-three  
-when  
-state  
-never  
-become  
-between  
-high  
-really  
-something  
-most  
-another  
-much  
-family  
-own  
-leave  
-put  
-old  
-while  
-mean  
-on  
-keep  
-student  
-why  
-let  
-great  
-same  
-big  
-group  
-begin  
-seem  
-country  
-help  
-talk  
-where  
-turn  
-problem  
-every  
-start  
-hand  
-might  
-American  
-show  
-part  
-about  
-against  
-place  
-such  
-again  
-few  
-case  
-most  
-week  
-company  
-where  
-system  
-each  
-right  
-program  
-hear  
-so  
-question  
-during  
-work  
-play  
-government  
-run  
-small  
-number  
-off  
-always  
-move  
-like  
-night  
-live  
-Mr  
-point  
-believe  
-hold  
-today  
-bring  
-happen  
-next  
-without  
-before  
-large  
-million  
-must
+Word	IPA
+ability	əbələty
+absence	əbsəncə
+academy	əcədəmy
+account	əccəənt
+action	əctəən
+activity	əctəvəty
+actor	əctər
+addition	əddətəən
+address	əddrəss
+administration	ədmənəstrətəən
+advantage	ədvəntəgə
+advertisement	ədvərtəsəmənt
+advice	ədvəcə
+affair	əffəər
+agency	əgəncy
+agreement	əgrəəmənt
+airplane	əərplənə
+airport	əərpərt
+alarm	ələrm
+alcohol	əlcəhəl
+ambition	əmbətəən
+analysis	ənəlysəs
+animal	ənəməl
+announcement	ənnəəncəmənt
+answer	ənswər
+anxiety	ənxəəty
+apartment	əpərtmənt
+apology	əpələgy
+appearance	əppəərəncə
+application	əppləcətəən
+appointment	əppəəntmənt
+approval	əpprəvəl
+argument	ərgəmənt
+arrangement	ərrəngəmənt
+arrival	ərrəvəl
+article	ərtəclə
+artist	ərtəst
+aspect	əspəct
+assignment	əssəgnmənt
+assistant	əssəstənt
+association	əssəcəətəən
+assumption	əssəmptəən
+atmosphere	ətməsphərə
+attitude	əttətədə
+audience	əədəəncə
+author	əəthər
+average	əvərəgə
+background	bəckgrəənd
+balance	bələncə
+balloon	bəlləən
+banker	bənkər
+barrier	bərrəər
+basement	bəsəmənt
+basis	bəsəs
+basket	bəskət
+bathroom	bəthrəəm
+battery	bəttəry
+beauty	bəəəty
+bedroom	bədrəəm
+behavior	bəhəvəər
+benefit	bənəfət
+bicycle	bəcyclə
+billion	bəlləən
+birthday	bərthdəy
+blanket	blənkət
+board	bəərd
+boundary	bəəndəry
+brain	brəən
+bread	brəəd
+breakfast	brəəkfəst
+breath	brəəth
+brother	brəthər
+building	bəəldəng
+business	bəsənəss
+butter	bəttər
+button	bəttən
+cabinet	cəbənət
+camera	cəmərə
+campaign	cəmpəəgn
+candidate	cəndədətə
+capital	cəpətəl
+career	cərəər
+carpet	cərpət
+carrier	cərrəər
+category	cətəgəry
+celebration	cələbrətəən
+cellphone	cəllphənə
+center	cəntər
+ceremony	cərəməny
+challenge	chəlləngə
+chance	chəncə
+change	chəngə
+channel	chənnəl
+chapter	chəptər
+character	chərəctər
+charity	chərəty
+cheese	chəəsə
+chemical	chəməcəl
+childhood	chəldhəəd
+choice	chəəcə
+cigarette	cəgərəttə
+citizen	cətəzən
+civilization	cəvələzətəən
+clarity	clərəty
+classroom	cləssrəəm
+climate	cləmətə
+closet	cləsət
+clothes	cləthəs
+coffee	cəffəə
+collection	cəlləctəən
+college	cəlləgə
+combination	cəmbənətəən
+comfort	cəmfərt
+command	cəmmənd
+comment	cəmmənt
+commitment	cəmmətmənt
+committee	cəmməttəə
+community	cəmmənəty
+company	cəmpəny
+comparison	cəmpərəsən
+competition	cəmpətətəən
+complaint	cəmpləənt
+computer	cəmpətər
+concept	cəncəpt
+concern	cəncərn
+concert	cəncərt
+condition	cəndətəən
+conference	cənfərəncə
+confidence	cənfədəncə
+conflict	cənfləct
+connection	cənnəctəən
+consequence	cənsəqəəncə
+consideration	cənsədərətəən
+construction	cənstrəctəən
+contract	cəntrəct
+contrast	cəntrəst
+conversation	cənvərsətəən
+cooperation	cəəpərətəən
+corner	cərnər
+corporation	cərpərətəən
+correction	cərrəctəən
+courage	cəərəgə
+course	cəərsə
+cousin	cəəsən
+coverage	cəvərəgə
+creation	crəətəən
+creature	crəətərə
+credit	crədət
+criticism	crətəcəsm
+culture	cəltərə
+customer	cəstəmər
+damage	dəməgə
+danger	dəngər
+darkness	dərknəss
+database	dətəbəsə
+daughter	dəəghtər
+deadline	dəədlənə
+dealer	dəələr
+decision	dəcəsəən
+defeat	dəfəət
+defense	dəfənsə
+degree	dəgrəə
+delivery	dələvəry
+demand	dəmənd
+department	dəpərtmənt
+departure	dəpərtərə
+dependence	dəpəndəncə
+description	dəscrəptəən
+designer	dəsəgnər
+desire	dəsərə
+desk	dəsk
+detail	dətəəl
+development	dəvələpmənt
+device	dəvəcə
+diagnosis	dəəgnəsəs
+dialogue	dəələgəə
+dictionary	dəctəənəry
+difference	dəffərəncə
+difficulty	dəffəcəlty
+dinner	dənnər
+direction	dərəctəən
+director	dərəctər
+disaster	dəsəstər
+discovery	dəscəvəry
+discussion	dəscəssəən
+disease	dəsəəsə
+display	dəspləy
+distance	dəstəncə
+distribution	dəstrəbətəən
+doctor	dəctər
+document	dəcəmənt
+doorway	dəərwəy
+drawing	drəwəng
+driver	drəvər
+duration	dərətəən
+duty	dəty
+eagle	əəglə
+economy	əcənəmy
+education	ədəcətəən
+effort	əffərt
+election	ələctəən
+element	ələmənt
+elevator	ələvətər
+emotion	əmətəən
+employee	əmpləyəə
+employer	əmpləyər
+employment	əmpləymənt
+encounter	əncəəntər
+energy	ənərgy
+engineer	əngənəər
+entertainment	əntərtəənmənt
+enthusiasm	ənthəsəəsm
+entry	əntry
+environment	ənvərənmənt
+episode	əpəsədə
+equipment	əqəəpmənt
+error	ərrər
+escape	əscəpə
+essay	əssəy
+establishment	əstəbləshmənt
+estate	əstətə
+estimate	əstəmətə
+event	əvənt
+evidence	əvədəncə
+examination	əxəmənətəən
+example	əxəmplə
+exchange	əxchəngə
+exercise	əxərcəsə
+exhibition	əxhəbətəən
+existence	əxəstəncə
+expansion	əxpənsəən
+expectation	əxpəctətəən
+expense	əxpənsə
+experience	əxpərəəncə
+experiment	əxpərəmənt
+expert	əxpərt
+explanation	əxplənətəən
+expression	əxprəssəən
+extension	əxtənsəən
+extent	əxtənt
+external	əxtərnəl
+facility	fəcələty
+factor	fəctər
+failure	fəələrə
+family	fəməly
+farmer	fərmər
+fashion	fəshəən
+father	fəthər
+feedback	fəədbəck
+festival	fəstəvəl
+figure	fəgərə
+finance	fənəncə
+finding	fəndəng
+finger	fəngər
+fireplace	fərəpləcə
+flight	fləght
+flower	fləwər
+focus	fəcəs
+food	fəəd
+football	fəətbəll
+forecast	fərəcəst
+forehead	fərəhəəd
+forest	fərəst
+formation	fərmətəən
+foundation	fəəndətəən
+freedom	frəədəm
+friendship	frəəndshəp
+function	fənctəən
+furniture	fərnətərə
+gallery	gəlləry
+garden	gərdən
+gate	gətə
+generation	gənərətəən
+gift	gəft
+girlfriend	gərlfrəənd
+goal	gəəl
+government	gəvərnmənt
+graduate	grədəətə
+grandfather	grəndfəthər
+grandmother	grəndməthər
+grocery	grəcəry
+growth	grəwth
+guest	gəəst
+guidance	gəədəncə
+habit	həbət
+haircut	həərcət
+hallway	həllwəy
+happiness	həppənəss
+hardware	hərdwərə
+hatred	hətrəd
+health	həəlth
+hearing	həərəng
+heart	həərt
+height	həəght
+highway	həghwəy
+history	həstəry
+holiday	hələdəy
+homework	həməwərk
+honey	hənəy
+hospital	həspətəl
+hostage	həstəgə
+household	həəsəhəld
+human	həmən
+hunger	həngər
+husband	həsbənd
+idea	ədəə
+identity	ədəntəty
+impact	əmpəct
+implementation	əmpləməntətəən
+importance	əmpərtəncə
+impression	əmprəssəən
+incident	əncədənt
+income	əncəmə
+independence	əndəpəndəncə
+individual	əndəvədəəl
+industry	əndəstry
+influence	ənfləəncə
+information	ənfərmətəən
+initiative	ənətəətəvə
+injury	ənjəry
+innovation	ənnəvətəən
+insight	ənsəght
+inspection	ənspəctəən
+instructor	ənstrəctər
+instrument	ənstrəmənt
+insurance	ənsərəncə
+interaction	əntərəctəən
+interest	əntərəst
+internal	əntərnəl
+internet	əntərnət
+introduction	əntrədəctəən
+investment	ənvəstmənt
+invitation	ənvətətəən
+island	əslənd
+jacket	jəckət
+judgment	jədgmənt
+juice	jəəcə
+kitchen	kətchən
+knowledge	knəwlədgə
+landscape	ləndscəpə
+language	ləngəəgə
+laughter	ləəghtər
+lawyer	ləwyər
+leader	ləədər
+learning	ləərnəng
+lecture	ləctərə
+legislation	ləgəslətəən
+library	ləbrəry
+limit	ləmət
+literature	lətərətərə
+location	ləcətəən
+luck	ləck
+lunch	lənch
+machine	məchənə
+magazine	məgəzənə
+maintenance	məəntənəncə
+manager	mənəgər
+manner	mənnər
+manufacturer	mənəfəctərər
+market	mərkət
+marriage	mərrəəgə
+material	mətərəəl
+meaning	məənəng
+measurement	məəsərəmənt
+medicine	mədəcənə
+memory	məməry
+mention	məntəən
+message	məssəgə
+method	məthəd
+midnight	mədnəght
+migration	məgrətəən
+military	mələtəry
+miner	mənər
+ministry	mənəstry
+mistake	məstəkə
+mixture	məxtərə
+mobile	məbələ
+moment	məmənt
+monitor	mənətər
+month	mənth
+mood	məəd
+morning	mərnəng
+motion	mətəən
+mountain	məəntəən
+movement	məvəmənt
+movie	məvəə
+muscle	məsclə
+museum	məsəəm
+music	məsəc
+nation	nətəən
+nature	nətərə
+negotiation	nəgətəətəən
+neighbor	nəəghbər
+nephew	nəphəw
+network	nətwərk
+newspaper	nəwspəpər
+nightmare	nəghtmərə
+noise	nəəsə
+notebook	nətəbəək
+notice	nətəcə
+novel	nəvəl
+nurse	nərsə
+object	əbjəct
+observation	əbsərvətəən
+occasion	əccəsəən
+offense	əffənsə
+offering	əffərəng
+office	əffəcə
+operation	əpərətəən
+opinion	əpənəən
+opportunity	əppərtənəty
+opponent	əppənənt
+option	əptəən
+orange	ərəngə
+order	ərdər
+organization	ərgənəzətəən
+outcome	əətcəmə
+outlet	əətlət
+owner	əwnər
+package	pəckəgə
+painting	pəəntəng
+panel	pənəl
+paper	pəpər
+paragraph	pərəgrəph
+parking	pərkəng
+partnership	pərtnərshəp
+passage	pəssəgə
+passenger	pəssəngər
+passion	pəssəən
+patience	pətəəncə
+pattern	pəttərn
+payment	pəymənt
+peace	pəəcə
+penalty	pənəlty
+percentage	pərcəntəgə
+perception	pərcəptəən
+performance	pərfərməncə
+permission	pərməssəən
+personality	pərsənələty
+perspective	pərspəctəvə
+phone	phənə
+photograph	phətəgrəph
+piano	pəənə
+picture	pəctərə
+piece	pəəcə
+pillow	pəlləw
+place	pləcə
+planning	plənnəng
+plant	plənt
+platform	plətfərm
+player	pləyər
+pleasure	pləəsərə
+plenty	plənty
+poet	pəət
+police	pələcə
+policy	pələcy
+pollution	pəllətəən
+population	pəpələtəən
+position	pəsətəən
+possibility	pəssəbələty
+postcard	pəstcərd
+potential	pətəntəəl
+practice	prəctəcə
+preference	prəfərəncə
+preparation	prəpərətəən
+presence	prəsəncə
+presentation	prəsəntətəən
+president	prəsədənt
+pressure	prəssərə
+price	prəcə
+priority	prəərəty
+prison	prəsən
+privacy	prəvəcy
+problem	prəbləm
+procedure	prəcədərə
+process	prəcəss
+product	prədəct
+profession	prəfəssəən
+professor	prəfəssər
+profile	prəfələ
+progress	prəgrəss
+project	prəjəct
+promise	prəməsə
+promotion	prəmətəən
+proof	prəəf
+proposal	prəpəsəl
+protection	prətəctəən
+protein	prətəən
+provision	prəvəsəən
+psychology	psychələgy
+publication	pəbləcətəən
+punishment	pənəshmənt
+purpose	pərpəsə
+quantity	qəəntəty
+quarter	qəərtər
+question	qəəstəən
+reaction	rəəctəən
+reality	rəələty
+reason	rəəsən
+reception	rəcəptəən
+recommendation	rəcəmməndətəən
+record	rəcərd
+recovery	rəcəvəry
+reduction	rədəctəən
+reference	rəfərəncə
+reflection	rəfləctəən
+refugee	rəfəgəə
+region	rəgəən
+regret	rəgrət
+relationship	rələtəənshəp
+relief	rələəf
+remark	rəmərk
+report	rəpərt
+request	rəqəəst
+requirement	rəqəərəmənt
+research	rəsəərch
+resource	rəsəərcə
+response	rəspənsə
+responsibility	rəspənsəbələty
+restaurant	rəstəərənt
+result	rəsəlt
+revenue	rəvənəə
+revolution	rəvələtəən
+reward	rəwərd
+rhythm	rhythm
+risk	rəsk
+river	rəvər
+roadway	rəədwəy
+robot	rəbət
+role	rələ
+roommate	rəəmmətə
+routine	rəətənə
+safety	səfəty
+salary	sələry
+sale	sələ
+sample	səmplə
+sanction	sənctəən
+satisfaction	sətəsfəctəən
+savings	səvəngs
+schedule	schədələ
+school	schəəl
+science	scəəncə
+screen	scrəən
+search	səərch
+season	səəsən
+secretary	səcrətəry
+section	səctəən
+security	səcərəty
+selection	sələctəən
+sense	sənsə
+sentence	səntəncə
+sequence	səqəəncə
+series	sərəəs
+service	sərvəcə
+session	səssəən
+setting	səttəng
+shadow	shədəw
+shareholder	shərəhəldər
+shelter	shəltər
+shipment	shəpmənt
+shopping	shəppəng
+shortage	shərtəgə
+shoulder	shəəldər
+signature	səgnətərə
+silence	sələncə
+singer	səngər
+situation	sətəətəən
+skill	skəll
+society	səcəəty
+software	səftwərə
+solution	sələtəən
+somebody	səməbədy
+speech	spəəch
+speed	spəəd
+spending	spəndəng
+spirit	spərət
+statement	stətəmənt
+statistics	stətəstəcs
+status	stətəs
+storage	stərəgə
+story	stəry
+strength	strəngth
+struggle	strəgglə
+student	stədənt
+studio	stədəə
+style	stylə
+subject	səbjəct
+substance	səbstəncə
+success	səccəss
+suggestion	səggəstəən
+supermarket	səpərmərkət
+support	səppərt
+surprise	sərprəsə
+surgery	sərgəry
+survival	sərvəvəl
+sympathy	sympəthy
+system	systəm
+table	təblə
+talent	tələnt
+target	tərgət
+teacher	təəchər
+technology	təchnələgy
+temperature	təmpərətərə
+temporary	təmpərəry
+tension	tənsəən
+theory	thəəry
+therapy	thərəpy
+ticket	təckət
+tobacco	təbəccə
+tolerance	tələrəncə
+tomorrow	təmərrəw
+tourist	təərəst
+tragedy	trəgədy
+training	trəənəng
+transaction	trənsəctəən
+translation	trənslətəən
+transportation	trənspərtətəən
+travel	trəvəl
+treatment	trəətmənt
+tunnel	tənnəl
+uncle	ənclə
+unemployment	ənəmpləymənt
+uniform	ənəfərm
+universe	ənəvərsə
+university	ənəvərsəty
+vacation	vəcətəən
+vehicle	vəhəclə
+version	vərsəən
+victim	vəctəm
+victory	vəctəry
+village	vəlləgə
+violation	vəələtəən
+visitor	vəsətər
+volunteer	vələntəər
+voting	vətəng
+wage	wəgə
+warning	wərnəng
+waste	wəstə
+weakness	wəəknəss
+wealth	wəəlth
+weather	wəəthər
+wedding	wəddəng
+weekend	wəəkənd
+weight	wəəght
+welcome	wəlcəmə
+welfare	wəlfərə
+whisper	whəspər
+window	wəndəw
+winner	wənnər
+wisdom	wəsdəm
+worker	wərkər
+workplace	wərkpləcə
+writer	wrətər

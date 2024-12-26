@@ -1,4 +1,5 @@
 import re
+import pandas as pd
 
 def split_list(input_list, n_splits):
     """Splits a list into n nearly equal parts."""
