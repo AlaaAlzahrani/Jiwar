@@ -30,6 +30,6 @@ Here's a quick overview of the measures calculated by Jiwar:
      - Based on the IPA transcription of words.
    * - Phonographic
      - N, Density, PGLD20, Clustering coefficient C, 2-hop density, Neighbor Frequency
-     - Based on both the written form and IPA transcription form of words.
+     - Based on both the written form and the IPA transcription form of words.
 
 For detailed explanations of each measure, please refer to the respective measure type pages.
