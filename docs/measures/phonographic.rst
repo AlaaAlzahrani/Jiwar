@@ -31,13 +31,15 @@ PGLD20
 
 **Output Column:** ``PGLD20``
 
-Phonographic C (pg_C)
----------------------
-**Full Name:** Phonographic Clustering Coefficient
+Phonographic Network
+-----------------------
+**Full Name:** Phonographic netowrk science measures
 
-**Description:** Measures the extent to which a word's phonographic neighbors are also phonographic neighbors of each other.
+**Description:** Measures the interconnectedness of a word's phonographic neighborhood at the near and distant neighbor levels.
 
-**Output Column:** ``pg_C``
+**Output Columns:**
+ * ``pg_C``: The clustering coefficient C measures the degree to which a word's immediate phonographic neighbors are also phonographic neighbors of each other.
+ * ``pg_2hop_density``: The 2-hop density measures the degree to which a word's immediate and distant phonographic neighbors are also phonographic neighbors of each other.
 
 Phonographic Neighbor Frequency
 -------------------------------

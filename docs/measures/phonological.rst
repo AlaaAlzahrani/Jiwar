@@ -31,13 +31,15 @@ PLD20
 
 **Output Column:** ``PLD20``
 
-Phonological C (phon_C)
+Phonological Network
 -----------------------
-**Full Name:** Phonological Clustering Coefficient
+**Full Name:** Phonological netowrk science measures
 
-**Description:** Measures the extent to which a word's phonological neighbors are also phonological neighbors of each other.
+**Description:** Measures the interconnectedness of a word's phonological neighborhood at the near and distant neighbor levels.
 
-**Output Column:** ``phon_C``
+**Output Columns:**
+ * ``phon_C``: The clustering coefficient C measures the degree to which a word's immediate phonological neighbors are also phonological neighbors of each other.
+ * ``phon_2hop_density``: The 2-hop density measures the degree to which a word's immediate and distant phonological neighbors are also phonological neighbors of each other.
 
 Phonological Neighbor Frequency
 -------------------------------

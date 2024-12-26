@@ -23,13 +23,13 @@ Here's a quick overview of the measures calculated by Jiwar:
      - Measures
      - Description
    * - Orthographic
-     - N, Density, OLD20, C, Neighbor Frequency
+     - N, Density, OLD20, Clustering coefficient C, 2-hop density, Neighbor Frequency
      - Based on the written form of words
    * - Phonological
-     - N, Density, PLD20, C, Neighbor Frequency
+     - N, Density, PLD20, Clustering coefficient C, 2-hop density, Neighbor Frequency
      - Based on the pronunciation of words
    * - Phonographic
-     - N, Density, PGLD20, C, Neighbor Frequency
+     - N, Density, PGLD20, Clustering coefficient C, 2-hop density, Neighbor Frequency
      - Combines both written and spoken forms
 
 For detailed explanations of each measure, please refer to the respective measure type pages.

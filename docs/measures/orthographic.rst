@@ -31,13 +31,15 @@ OLD20
 
 **Output Column:** ``OLD20``
 
-Orthographic C (orth_C)
+Orthographic Network
 -----------------------
-**Full Name:** Orthographic Clustering Coefficient
+**Full Name:** Orthographic netowrk science measures
 
-**Description:** Measures the extent to which a word's orthographic neighbors are also orthographic neighbors of each other.
+**Description:** Measures the interconnectedness of a word's orthographic neighborhood at the near and distant neighbor levels.
 
-**Output Column:** ``orth_C``
+**Output Columns:**
+ * ``orth_C``: The clustering coefficient C measures the degree to which a word's immediate orthographic neighbors are also orthographic neighbors of each other.
+ * ``orth_2hop_density``: The 2-hop density measures the degree to which a word's immediate and distant orthographic neighbors are also orthographic neighbors of each other.
 
 Orthographic Neighbor Frequency
 -------------------------------
