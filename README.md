@@ -117,10 +117,14 @@ You should have received a copy of the GNU General Public License along with thi
 If you use Jiwar in your research, please cite:
 
 ```bibtex
-@preprint{Alzahrani:2024:jiwar,
-    title = "{Jiwar: A database and calculator for word neighborhood measures in 40 Languages}",
-    author = {Alaa Alzahrani},
-    year = "2024",
-    note = "Preprint"
+@article{Alzahrani2025Jiwar,
+  author    = {Alaa Alzahrani},
+  title     = {Jiwar: A database and calculator for word neighborhood measures in 40 languages},
+  journal   = {Behavior Research Methods},
+  volume    = {57},
+  year      = {2025},
+  article   = {98},
+  doi       = {10.3758/s13428-025-02612-7},
+  url       = {https://link.springer.com/article/10.3758/s13428-025-02612-7}
 }
 ```
