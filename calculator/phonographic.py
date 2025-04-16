@@ -101,7 +101,14 @@ def calculate_neighborhood_frequency(words, ipa_words, corpus_words, corpus_ipa,
                 (corpus_df['word'].apply(lambda x: cached_distance(word, x) == 1)) &
                 (corpus_df['ipa'].apply(lambda x: cached_distance(ipa, x) == 1))
             ]
-            word_freq = corpus_df[(corpus_df['word'] == word) & (corpus_df['ipa'] == ipa)]['frequency'].iloc[0] if word in corpus_df['word'].values and ipa in corpus_df['ipa'].values else 0
+
+            
+            filtered_self = corpus_df[(corpus_df['word'] == word) & (corpus_df['ipa'] == ipa)]
+            if not filtered_self.empty:
+                word_freq = filtered_self['frequency'].iloc[0]
+            else:
+                word_freq = 0.0  
+                
             neighbor_freqs = neighbors['frequency']
             
             if len(neighbor_freqs) > 0:
