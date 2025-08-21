@@ -138,6 +138,41 @@ def calculate_neighborhood_frequency(words, ipa_words, corpus_words, corpus_ipa,
     
     return mean_series, std_series, mean_higher_series, mean_lower_series
 
+# NEW FUNCTION: Calculate PGLD20 neighbor frequency
+def calculate_pgld20_neighborhood_frequency(words, ipa_words, corpus_words, corpus_ipa, frequencies):
+    """Calculate average frequency of the 20 closest phonographic neighbors"""
+    corpus_words_list = corpus_words.to_list()
+    corpus_ipa_list = corpus_ipa.to_list()
+    frequencies_list = frequencies.to_list()
+    
+    def process_chunk(chunk):
+        results = []
+        for word, ipa in chunk:
+            word_distances = [(max(cached_distance(word, w), cached_distance(ipa, i)), freq)
+                            for w, i, freq in zip(corpus_words_list, corpus_ipa_list, frequencies_list)
+                            if word != w or ipa != i]
+            
+            word_distances.sort(key=lambda x: x[0])
+            closest_20 = word_distances[:20] if len(word_distances) >= 20 else word_distances
+            
+            if len(closest_20) > 0:
+                neighbor_freqs = [freq for _, freq in closest_20]
+                mean_freq = float(np.mean(neighbor_freqs)) if len(neighbor_freqs) > 0 else np.nan
+                results.append(mean_freq)
+            else:
+                results.append(np.nan)
+        return results
+
+    chunk_size = 1000
+    word_ipa_pairs = list(zip(words, ipa_words))
+    chunks = [word_ipa_pairs[i:i+chunk_size] for i in range(0, len(word_ipa_pairs), chunk_size)]
+    
+    results = []
+    for chunk in tqdm(chunks, desc="Calculating phonographic PGLD20 neighborhood frequency"):
+        results.extend(process_chunk(chunk))
+    
+    return pl.Series(results)
+
 def calculate_network_metrics(words, ipa_words, corpus_words, corpus_ipa):
     results = process_words(words, ipa_words, corpus_words, corpus_ipa, 'clustering')
     C_values = pl.Series([result[0] for result in results])

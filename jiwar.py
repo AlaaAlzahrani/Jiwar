@@ -71,7 +71,7 @@ def process_chunk(args):
             results['pg_C'] = C
             results['pg_2hop_density'] = two_hop
 
-    # Generate frequency info
+    # Generate frequency info (existing measures)
     for freq_col in frequency_cols:
         if 'orth_nbr_freq' in selected_measures:
             mean, std, mean_higher, mean_lower = orthographic.calculate_neighborhood_frequency(chunk['word'], corpus_data['word'], corpus_data[freq_col])
@@ -124,6 +124,16 @@ def process_chunk(args):
                 results[f'pg_nbr_{freq_col}_SD'] = std
                 results[f'pg_nbr_{freq_col}_higher'] = mean_higher
                 results[f'pg_nbr_{freq_col}_lower'] = mean_lower
+
+    # NEW: Generate OLD20 neighbor frequency measures
+    for freq_col in frequency_cols:
+        if freq_col == 'freq_per_m': 
+            if 'orth_old20_nbr_freq' in selected_measures:
+                results['orth_old20_nbr_fpm_m'] = orthographic.calculate_old20_neighborhood_frequency(chunk['word'], corpus_data['word'], corpus_data[freq_col])
+            if 'phon_old20_nbr_freq' in selected_measures and include_ipa:
+                results['phon_old20_nbr_fpm_m'] = phonological.calculate_pld20_neighborhood_frequency(chunk['IPA'], corpus_data['IPA'], corpus_data[freq_col])
+            if 'pg_old20_nbr_freq' in selected_measures and include_ipa:
+                results['pg_old20_nbr_fpm_m'] = phonographic.calculate_pgld20_neighborhood_frequency(chunk['word'], chunk['IPA'], corpus_data['word'], corpus_data['IPA'], corpus_data[freq_col])
     
     return pl.DataFrame(results)
 
@@ -220,11 +230,11 @@ def main():
 
     selected_measures = []
     if 'all' in measures or 'orth' in measures:
-        selected_measures.extend(['orth', 'orth_N', 'orth_density', 'OLD20', 'orth_C', 'orh_2hop_density', 'orth_nbr_freq'])
+        selected_measures.extend(['orth', 'orth_N', 'orth_density', 'OLD20', 'orth_C', 'orh_2hop_density', 'orth_nbr_freq', 'orth_old20_nbr_freq'])
     if 'all' in measures or 'phon' in measures:
-        selected_measures.extend(['phon', 'phon_N', 'phon_density', 'PLD20', 'phon_C', 'phon_2hop_density', 'phon_nbr_freq'])
+        selected_measures.extend(['phon', 'phon_N', 'phon_density', 'PLD20', 'phon_C', 'phon_2hop_density', 'phon_nbr_freq', 'phon_old20_nbr_freq'])
     if 'all' in measures or 'pg' in measures:
-        selected_measures.extend(['pg', 'pg_N', 'pg_density', 'PGLD20', 'pg_C', 'pg_2hop_density', 'pg_nbr_freq'])
+        selected_measures.extend(['pg', 'pg_N', 'pg_density', 'PGLD20', 'pg_C', 'pg_2hop_density', 'pg_nbr_freq', 'pg_old20_nbr_freq'])
 
     include_ipa = 'all' in measures or 'phon' in measures or 'pg' in measures
     if include_ipa and 'IPA' in input_data.columns:

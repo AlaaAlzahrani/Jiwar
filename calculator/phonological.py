@@ -122,6 +122,39 @@ def calculate_neighborhood_frequency(words, corpus, frequencies):
 
     return mean_series, std_series, mean_higher_series, mean_lower_series
 
+# NEW FUNCTION: Calculate PLD20 neighbor frequency
+def calculate_pld20_neighborhood_frequency(words, corpus, frequencies):
+    """Calculate average frequency of the 20 closest Levenshtein neighbors for phonological forms"""
+    corpus_list = corpus.to_list()
+    frequencies_list = frequencies.to_list()
+    
+    def process_chunk(chunk):
+        results = []
+        for word in chunk:
+            word_distances = [(cached_distance(word, w), freq) 
+                            for w, freq in zip(corpus_list, frequencies_list) 
+                            if w != word]
+            
+            word_distances.sort(key=lambda x: x[0])
+            closest_20 = word_distances[:20] if len(word_distances) >= 20 else word_distances
+            
+            if len(closest_20) > 0:
+                neighbor_freqs = [freq for _, freq in closest_20]
+                mean_freq = float(np.mean(neighbor_freqs)) if len(neighbor_freqs) > 0 else np.nan
+                results.append(mean_freq)
+            else:
+                results.append(np.nan)
+        return results
+
+    chunk_size = 1000
+    chunks = [words[i:i+chunk_size] for i in range(0, len(words), chunk_size)]
+    
+    results = []
+    for chunk in tqdm(chunks, desc="Calculating phonological PLD20 neighborhood frequency"):
+        results.extend(process_chunk(chunk))
+    
+    return pl.Series(results)
+
 def calculate_network_metrics(words, corpus):
     corpus_series = pl.Series(corpus)
     results = process_words(words, corpus_series, 'clustering')
