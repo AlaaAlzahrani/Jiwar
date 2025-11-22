@@ -126,14 +126,28 @@ def process_chunk(args):
                 results[f'pg_nbr_{freq_col}_lower'] = mean_lower
 
     # NEW: Generate OLD20 neighbor frequency measures
-    for freq_col in frequency_cols:
-        if freq_col == 'freq_per_m': 
+        for freq_col in frequency_cols:
+            if freq_col == 'freq_per_m':
+                suffix = 'fpm_m'
+            elif freq_col == 'zipf':
+                suffix = 'zipf_m'
+            else:
+                suffix = f'{freq_col}_m'
+
             if 'orth_old20_nbr_freq' in selected_measures:
-                results['orth_old20_nbr_fpm_m'] = orthographic.calculate_old20_neighborhood_frequency(chunk['word'], corpus_data['word'], corpus_data[freq_col])
+                results[f'orth_old20_nbr_{suffix}'] = orthographic.calculate_old20_neighborhood_frequency(
+                    chunk['word'], corpus_data['word'], corpus_data[freq_col]
+                )
+                
             if 'phon_old20_nbr_freq' in selected_measures and include_ipa:
-                results['phon_old20_nbr_fpm_m'] = phonological.calculate_pld20_neighborhood_frequency(chunk['IPA'], corpus_data['IPA'], corpus_data[freq_col])
+                results[f'phon_old20_nbr_{suffix}'] = phonological.calculate_pld20_neighborhood_frequency(
+                    chunk['IPA'], corpus_data['IPA'], corpus_data[freq_col]
+                )
+                
             if 'pg_old20_nbr_freq' in selected_measures and include_ipa:
-                results['pg_old20_nbr_fpm_m'] = phonographic.calculate_pgld20_neighborhood_frequency(chunk['word'], chunk['IPA'], corpus_data['word'], corpus_data['IPA'], corpus_data[freq_col])
+                results[f'pg_old20_nbr_{suffix}'] = phonographic.calculate_pgld20_neighborhood_frequency(
+                    chunk['word'], chunk['IPA'], corpus_data['word'], corpus_data['IPA'], corpus_data[freq_col]
+                )
     
     return pl.DataFrame(results)
 
